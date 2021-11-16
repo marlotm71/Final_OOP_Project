@@ -11,7 +11,8 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CircleTest {
-    private Circle circly = new Circle("cir",3,3.0f,3.0f ,3.0f);
+    private double xcircly = 3.0;
+    private Circle circly = new Circle("cir",3,xcircly,3.0f ,3.0f);
     private Circle cirs = new Circle("cirs",4,4.0f,4.0f,4.0f);
     private Circle Hans = new Circle("Hans",1,1.0f,1.0f,1.0f);
     private Circle Joseph = new Circle("Joseph",9,9.0f,9.0f,9.0f);
