@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -12,6 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SquareTest {
     private Square Squid = new Square("Squid",3,3.0f,3.0f,3.0f);
+    private Line SquidLine1 = new Line("SquidLine1", 2, 3,3,6,3);
+    private Line SquidLine2 = new Line("SquidLine2", 2, 3,3,3,6);
+    private Line SquidLine3 = new Line("SquidLine3", 2, 3,6,6,6);
+    private Line SquidLine4 = new Line("SquidLine4", 2, 6,3,6,6);
     private Square Ken = new Square("Ken",7,7.0f,7.0f,7.0f);
     private Square Bobby = new Square("Bobby",2,2.0f,2.0f,2.0f);
     private Square Charlemagne = new Square("Charlemagne",1,1.0f,1.0f,1.0f);
@@ -31,6 +37,15 @@ class SquareTest {
         assertNotEquals(" ", Squid.getL()); // make sure r is not empty
         assertTrue(Squid.getL() > 0); // to make sure the length not zero or negative
         assertFalse(Squid.getL() <= 0); // to make sure the length is not a zero or negative value
+    }
+
+    @Test
+    public void move() {
+        Squid.move(2,4);
+        assertEquals(5, Squid.getX());
+        assertEquals(7,Squid.getY());
+        Squid.move(-20,-20);
+        Assert.assertEquals("The new square coordinates are : (5.0,7.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
     }
 
     @Test
@@ -72,18 +87,10 @@ class SquareTest {
 
     @Test
     void min_coordinate_y() {
-        //min_coordinate_y() return getY() - l
-        //length cannot be negative and zero
-        //min_coordinate_y() can be negative and 0, due to subtracting and Y having a chance of being 0 or negative
-        // l cannot be 0 or negative
-        //but the y-coordinate can be a negative number, since a subtraction is done, so there is a chance of y-coordinate being negative or even 0(origin)
-
         assertTrue(Eli.getL() > 0); // make sure Length is bigger than 0 and negative numbers
         assertFalse(Eli.getL() <= 0); // make sure length is bigger than 0 and negative numbers
         assertEquals(34, new Square("Eunice",3,90.0f,34.0f,2.0f).min_coordinate_y());
         assertEquals(2, new Square("Kelly", 1, 56.0f,2.0f,5.0f).min_coordinate_y());
-
-
     }
     @Test
     void distancePoint() {
@@ -91,5 +98,47 @@ class SquareTest {
         assertFalse(Stan.distancePoint(15.0f,16.0f));
 
     }
+
+    @Test
+    void transformSquareInLine1() {
+        assertEquals(SquidLine1.getX(), Squid.transformSquareInLine1().getX());
+        assertEquals(SquidLine1.getY(), Squid.transformSquareInLine1().getY());
+        assertEquals(SquidLine1.getX2(), Squid.transformSquareInLine1().getX2());
+        assertEquals(SquidLine1.getY2(), Squid.transformSquareInLine1().getY2());
+    }
+
+    @Test
+    void transformSquareInLine2() {
+        assertEquals(SquidLine2.getX(), Squid.transformSquareInLine2().getX());
+        assertEquals(SquidLine2.getY(), Squid.transformSquareInLine2().getY());
+        assertEquals(SquidLine2.getX2(), Squid.transformSquareInLine2().getX2());
+        assertEquals(SquidLine2.getY2(), Squid.transformSquareInLine2().getY2());
+    }
+
+    @Test
+    void transformSquareInLine3() {
+        assertEquals(SquidLine3.getX(), Squid.transformSquareInLine3().getX());
+        assertEquals(SquidLine3.getY(), Squid.transformSquareInLine3().getY());
+        assertEquals(SquidLine3.getX2(), Squid.transformSquareInLine3().getX2());
+        assertEquals(SquidLine3.getY2(), Squid.transformSquareInLine3().getY2());
+    }
+
+    @Test
+    void transformSquareInLine4() {
+        assertEquals(SquidLine4.getX(), Squid.transformSquareInLine4().getX());
+        assertEquals(SquidLine4.getY(), Squid.transformSquareInLine4().getY());
+        assertEquals(SquidLine4.getX2(), Squid.transformSquareInLine4().getX2());
+        assertEquals(SquidLine4.getY2(), Squid.transformSquareInLine4().getY2());
+    }
+
+    /*@Test
+    void draw() {
+        Graphics g1;
+        Graphics2D g = (Graphics2D) g1;
+        Rectangle2D rect = new Rectangle2D.Double(Squid.getX(), Squid.getY(), Squid.getL(), Squid.getL());
+        g.draw(rect);
+        assertEquals(g.draw(rect),Squid.draw(g1));
+    }*/
+
 
 }
