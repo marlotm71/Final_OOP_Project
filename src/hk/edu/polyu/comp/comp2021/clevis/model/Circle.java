@@ -63,13 +63,7 @@ public class Circle extends Figure_geo {
 
     @Override
     public boolean distancePoint(double x, double y) {
-
-        if(Math.sqrt((Math.pow((this.getX()-x),2) + Math.pow((this.getY()-y),2))) < (this.getR() + error)){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return Math.sqrt((Math.pow((this.getX() - x), 2) + Math.pow((this.getY() - y), 2))) < (this.getR() + error);
     }
 
     @Override
@@ -80,14 +74,9 @@ public class Circle extends Figure_geo {
         g.draw(circle);
     }
 
-
     public boolean intersect(Circle other) {
-        boolean intersect =false;
         double d=Math.sqrt(Math.pow(this.getX()-other.getX(),2)+Math.pow(this.getY()-other.getY(),2));
-        if(d<=(this.getR()+ other.getR()) && d>=Math.abs(this.getR()- other.getR()) && (d!=0 || this.getR()!=other.getR() )){
-            intersect=true;
-        }
-        return intersect;
+        return d <= (this.getR() + other.getR()) && d >= Math.abs(this.getR() - other.getR()) && (d != 0 || this.getR() != other.getR());
     }
     private final double error = 0.05;
     static class FigureNotInGridError extends Error{}
