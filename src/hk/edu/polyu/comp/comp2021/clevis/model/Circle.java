@@ -23,15 +23,11 @@ public class Circle extends Figure_geo {
                 setY(getY()+dy);
                 System.out.println("The new Circle coordinates are : (" + this.getX() + "," + this.getY() + ")");
             }
-            else{
-                throw new FigureNotInGridError();
-            }
+            else throw new FigureNotInGridError();
         }
         catch (FigureNotInGridError f){
             System.out.println("The new coordinates are not in the grid");
         }
-
-
     }
 
     @Override
