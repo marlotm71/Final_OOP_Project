@@ -68,7 +68,6 @@ public class Line extends Figure_geo {
 
     @Override
     public boolean distancePoint(double x, double y) {
-        double error = 0.05;
         if (getX() == getX2()){
             if ((x>(getX()-error) && x < (getX()+error)) && (y>min_coordinate_y()-error && y< (max_coordinate_y()+error) )){
                 return true;
@@ -304,6 +303,6 @@ public class Line extends Figure_geo {
         return false;
 
     }
-
+    private final double error = 0.05;
 
 }

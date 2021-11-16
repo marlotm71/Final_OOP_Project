@@ -63,7 +63,7 @@ public class Circle extends Figure_geo {
 
     @Override
     public boolean distancePoint(double x, double y) {
-        double error = 0.05;
+
         if(Math.sqrt((Math.pow((this.getX()-x),2) + Math.pow((this.getY()-y),2))) < (this.getR() + error)){
             return true;
         }
@@ -74,8 +74,9 @@ public class Circle extends Figure_geo {
 
     @Override
     void draw(Graphics g1) {
+        final int multiplyby2 = 2;
         Graphics2D g = (Graphics2D) g1;
-        Ellipse2D circle = new Ellipse2D.Double(getX() - getR(), getY() - getR(), getR() * 2.0, getR() * 2.0);
+        Ellipse2D circle = new Ellipse2D.Double(getX() - getR(), getY() - getR(), getR() * multiplyby2, getR() * multiplyby2);
         g.draw(circle);
     }
 
@@ -88,6 +89,6 @@ public class Circle extends Figure_geo {
         }
         return intersect;
     }
-
+    private final double error = 0.05;
     static class FigureNotInGridError extends Error{}
 }

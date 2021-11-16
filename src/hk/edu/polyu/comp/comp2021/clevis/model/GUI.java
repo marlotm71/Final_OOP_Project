@@ -15,6 +15,7 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("GUI 2D SHAPES");
         frame.pack();
+        frame.setBounds(100,100,1000,1000);
         frame.setVisible(true);
         JPanel panel = new JPanel() {
             @Override
@@ -24,7 +25,6 @@ public class GUI {
                 }
             }
         };
-        panel.setBorder(BorderFactory.createEmptyBorder(250,250,250,250));
         panel.setLayout(new GridLayout(0,1));
         frame.add(panel,BorderLayout.CENTER);
     }
