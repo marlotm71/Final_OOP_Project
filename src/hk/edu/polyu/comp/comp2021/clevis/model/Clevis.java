@@ -12,6 +12,7 @@ public class Clevis {
 
     public Clevis() {
         boolean bool = false;
+        Nbshapecreate nbCreate = new Nbshapecreate();
         Path file = Path.of("//Users//gauthiermarre//Project.txt");
         Path vile = Path.of("//Users//gauthiermarre//Project.html");
 
@@ -29,6 +30,7 @@ public class Clevis {
         System.out.println("|________________________________________________________________________|");
         GUI gui = new GUI();
 
+
         while (!bool)
             try {
                 InputStreamReader isr = new InputStreamReader(System.in);
@@ -38,7 +40,7 @@ public class Clevis {
                 Files.writeString(file, "||" + commandUser + System.lineSeparator() + "\r\n" , StandardOpenOption.APPEND);
                 Files.writeString(vile, "||" + commandUser + System.lineSeparator() + "\r\n" , StandardOpenOption.APPEND);
                 System.out.println("Your command is : " + commandUser);
-                Command_process command = new Command_process(commandUser,listShapeAll,listGroup);
+                Command_process command = new Command_process(commandUser,listShapeAll,listGroup, nbCreate);
                 gui.drawFinal(listShapeAll);
             }
             catch (IOException e) {
@@ -65,6 +67,8 @@ public class Clevis {
     private List<Shape> listShapeAll=new ArrayList<>();
 
     private List<Group> listGroup =new ArrayList<>();
+
+
 
     static class Fig_not_recognized extends Error{}
 

@@ -6,13 +6,14 @@ import java.util.StringTokenizer;
 
 public class Command_process {
 
-    public Command_process(String command, List<Shape> listShapeAll, List<Group> listGroup){
+    public Command_process(String command, List<Shape> listShapeAll, List<Group> listGroup, Nbshapecreate nbSCreate){
         // Create a test
         String type_Figure_Geo = "";
         StringTokenizer st = new StringTokenizer(command, " ");
         String type_Figure_geo = st.nextToken();
         String name_Figure_geo = "";
         System.out.println(type_Figure_Geo);
+        int nbSCreatebis = 0;
 
         switch (type_Figure_geo) {
             case ("rectangle"):
@@ -26,8 +27,9 @@ public class Command_process {
                 CheckPositive(w);
                 double h = Integer.parseInt(st.nextToken());
                 CheckPositive(h);
-                Rectangle rect = new Rectangle(name_Figure_geo, nbShapeCreate, x, y, w, h);
-                nbShapeCreate++;
+                nbSCreate.setNbshapecreate(nbSCreate.getNbshapecreate()+1);
+                nbSCreatebis = nbSCreate.getNbshapecreate();
+                Rectangle rect = new Rectangle(name_Figure_geo, nbSCreatebis, x, y, w, h);
                 listShapeAll.add(rect);
                 break;
             case ("circle"):
@@ -39,8 +41,9 @@ public class Command_process {
                 CheckPositive(y);
                 double r = Integer.parseInt(st.nextToken());
                 CheckPositive(r);
-                Circle cir = new Circle(name_Figure_geo, nbShapeCreate, x, y, r);
-                nbShapeCreate++;
+                nbSCreate.setNbshapecreate(nbSCreate.getNbshapecreate()+1);
+                nbSCreatebis = nbSCreate.getNbshapecreate();
+                Circle cir = new Circle(name_Figure_geo, nbSCreatebis, x, y, r);
                 listShapeAll.add(cir);
                 break;
             case ("line"):
@@ -54,8 +57,9 @@ public class Command_process {
                 CheckPositive(x2);
                 double y2 = Integer.parseInt(st.nextToken());
                 CheckPositive(y2);
-                Line li = new Line(name_Figure_geo, nbShapeCreate, x, y, x2, y2);
-                nbShapeCreate++;
+                nbSCreate.setNbshapecreate(nbSCreate.getNbshapecreate()+1);
+                nbSCreatebis = nbSCreate.getNbshapecreate();
+                Line li = new Line(name_Figure_geo, nbSCreatebis, x, y, x2, y2);
                 listShapeAll.add(li);
                 break;
             case ("square"):
@@ -66,8 +70,9 @@ public class Command_process {
                 y = Integer.parseInt(st.nextToken());
                 CheckPositive(y);
                 double l = Integer.parseInt(st.nextToken());
-                Square sq = new Square(name_Figure_geo, nbShapeCreate, x, y, l);
-                nbShapeCreate++;
+                nbSCreate.setNbshapecreate(nbSCreate.getNbshapecreate()+1);
+                nbSCreatebis = nbSCreate.getNbshapecreate();
+                Square sq = new Square(name_Figure_geo, nbSCreatebis, x, y, l);
                 listShapeAll.add(sq);
                 break;
             case ("group"):
@@ -86,10 +91,13 @@ public class Command_process {
                 for (int i = 0; i < nbShape; i++) {
                     listShapeAll.remove(listShapeGroup[i]);
                 }
-                Group gr = new Group(name_Figure_geo, nbShapeCreate, nbShape, listShapeGroup);
+                nbSCreate.setNbshapecreate(nbSCreate.getNbshapecreate()+1);
+                nbSCreatebis = nbSCreate.getNbshapecreate();
+                Group gr = new Group(name_Figure_geo, nbSCreatebis, nbShape, listShapeGroup);
                 listShapeAll.add(gr);
                 listGroup.add(gr);
-                nbShapeCreate = nbShapeCreate - nbShape + 1;
+                nbSCreatebis = nbSCreatebis - nbShape + 1;
+                nbSCreate.setNbshapecreate(nbSCreatebis);
                 break;
 
             case ("ungroup"):
@@ -198,13 +206,19 @@ public class Command_process {
                 }
                 if (listShapePM.isEmpty()) {
                     throw new Clevis.Pick_and_move_Error();
-                } else {
+                }
+                else {
                     for (Shape elmtShapePM : listShapePM) {
                         if (elmtShapePM.getzOrder() >= maxzOrder) {
                             shapeToMove = elmtShapePM;
+                            maxzOrder = elmtShapePM.getzOrder();
                         }
                     }
-                    shapeToMove.move(pmDx, pmDy);
+                    for (Shape elmtShapeAll : listShapeAll) {
+                        if ((elmtShapeAll.getName()).equals(shapeToMove.getName())) {
+                            elmtShapeAll.move(pmDx, pmDy);
+                        }
+                    }
                 }
                 break;
 
@@ -241,6 +255,7 @@ public class Command_process {
                 throw new Clevis.Fig_not_recognized();
                 //Create an error corresponding to * in case of a user command error
         }
+
     }
 
     public boolean generalIntersect(Shape shape1, Shape shape2, List<Shape> listShapeAll){
@@ -401,7 +416,4 @@ public class Command_process {
             throw new Clevis.FigureNotInGridError();
         }
     }
-
-
-    private int nbShapeCreate=0;
 }
