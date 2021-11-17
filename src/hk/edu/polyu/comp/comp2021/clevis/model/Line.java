@@ -289,10 +289,10 @@ public class Line extends Figure_geo {
         String line3 = "";
         String line4 = "";
         boolean bool= false;
-        Line li1 = new Line(line1, 0, other.getX(), other.getY(), other.getX()+ other.getW(), other.getY());
+        Line li1 = new Line(line1, 0, other.getX(), other.getY(), other.getX()+ other.getL(), other.getY());
         Line li2 = new Line(line2, 0, other.getX(), other.getY(), other.getX(), other.getY()+ other.getH());
-        Line li3 = new Line(line3, 0, other.getX(), other.getY()+other.getH(), other.getX()+ other.getW(), other.getY()+ other.getH());
-        Line li4 = new Line(line4, 0, other.getX()+other.getW(), other.getY(),other.getX()+ other.getW(), other.getY()+ other.getH());
+        Line li3 = new Line(line3, 0, other.getX(), other.getY()+other.getH(), other.getX()+ other.getL(), other.getY()+ other.getH());
+        Line li4 = new Line(line4, 0, other.getX()+other.getL(), other.getY(),other.getX()+ other.getL(), other.getY()+ other.getH());
         if(this.intersect(li1)|| this.intersect(li2)||this.intersect(li3)||this.intersect(li4)) bool = true;
         return bool;
     }

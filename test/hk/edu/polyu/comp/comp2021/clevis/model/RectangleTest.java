@@ -47,18 +47,6 @@ class RectangleTest {
     }
 
     /**
-     * Test getter width
-     */
-    @Test
-    void getW() {
-        assertNotNull(James.getW()); // to make sure the width is not null
-        assertNotEquals(" ", James.getW()); // make sure width is not empty
-        assertTrue(James.getW() > 0); // to make sure the width not zero or negative
-        assertFalse(James.getW() <= 0); // to make sure the width is not a zero or negative value
-        assertEquals(45, new Rectangle("Grace",2, 12.0f,34.0f,45.0f, 12.0f).getW());
-    }
-
-    /**
      * Test move rectangle
      */
     @Test
@@ -86,8 +74,8 @@ class RectangleTest {
     void max_coordinate_x() {
         //the height must be a positive number and is bigger than 0
         //but the max_coordinate_x does not need to be positive or bigger than 0, due to the chance of X coordinate being negative
-        assertTrue(  John.getW() > 0);
-        assertFalse( John.getW() < 0);
+        assertTrue(  John.getL() > 0);
+        assertFalse( John.getL() < 0);
         assertEquals(14,new Rectangle("Cody",7,7.0f,7.0f,7.0f,7.0f).max_coordinate_x());
         assertEquals(12,new Rectangle("Dobry",7,5.0f,7.0f,7.0f,5.0f).max_coordinate_x());
 

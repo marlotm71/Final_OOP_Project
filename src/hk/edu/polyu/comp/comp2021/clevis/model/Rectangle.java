@@ -9,7 +9,7 @@ import static java.lang.Math.min;
 /**
  * Class Rectangle is a child of figure_geo, we just add a width and a height
  */
-public class Rectangle extends Figure_geo {
+public class Rectangle extends Square {
 
     /**
      * Rectangle Constructor
@@ -21,8 +21,7 @@ public class Rectangle extends Figure_geo {
      * @param h ; height of the rectangle
      */
     public Rectangle(String name, int zOrder, double x, double y, double w, double h){
-        super(name, zOrder, x, y);
-        this.w=w;
+        super(name, zOrder, x, y, w);
         this.h=h;
     }
 
@@ -34,15 +33,6 @@ public class Rectangle extends Figure_geo {
         return h;
     }
 
-    /**
-     * getter of the width of the rectangle
-     * @return width of the rectangle
-     */
-    public double getW() {
-        return w;
-    }
-
-    private double w;
     private double h;
 
     @Override
@@ -66,14 +56,14 @@ public class Rectangle extends Figure_geo {
     public void listFigure() {
         System.out.print("Rectangle Name : " + this.getName() + " | ");
         System.out.print("Height : " + this.getH() + " | ");
-        System.out.print("Width : " + this.getW() + " | ");
+        System.out.print("Width : " + this.getL() + " | ");
         System.out.println("Coordinate Top Left Corner : (" + this.getX() + "," + this.getY() + ") | ");
 
     }
 
     @Override
     public double max_coordinate_x() {
-        return (getX()+w);
+        return (getX()+getL());
     }
 
     @Override
@@ -94,7 +84,7 @@ public class Rectangle extends Figure_geo {
     @Override
     public boolean distancePoint(double x, double y) {
 
-        if ((x > (this.getX() - error) && x < (this.getX() + this.getW() + error)) && (y>(this.getY() - error) && y < (this.getY() + this.getH() + error))) {
+        if ((x > (this.getX() - error) && x < (this.getX() + this.getL() + error)) && (y>(this.getY() - error) && y < (this.getY() + this.getH() + error))) {
             return true;
         }
         else {
@@ -105,7 +95,7 @@ public class Rectangle extends Figure_geo {
     @Override
     void draw(Graphics g1) {
         Graphics2D g = (Graphics2D) g1;
-        Rectangle2D rect = new Rectangle2D.Double(getX(), getY(), getW(), getH());
+        Rectangle2D rect = new Rectangle2D.Double(getX(), getY(), getL(), getH());
         g.draw(rect);
     }
     /**
@@ -114,7 +104,7 @@ public class Rectangle extends Figure_geo {
      */
     public Line transformRecInLine1(){
         String line1 = "";
-        Line li1 = new Line(line1, 0, this.getX(), this.getY(), this.getX()+ this.getW(), this.getY());
+        Line li1 = new Line(line1, 0, this.getX(), this.getY(), this.getX()+ this.getL(), this.getY());
         return li1;
     }
 
@@ -134,7 +124,7 @@ public class Rectangle extends Figure_geo {
      */
     public Line transformRecInLine3(){
         String line3 = "";
-        Line li3 = new Line(line3, 0, this.getX(), this.getY()+this.getH(), this.getX()+ this.getW(), this.getY()+ this.getH());
+        Line li3 = new Line(line3, 0, this.getX(), this.getY()+this.getH(), this.getX()+ this.getL(), this.getY()+ this.getH());
         return li3;
     }
 
@@ -144,7 +134,7 @@ public class Rectangle extends Figure_geo {
      */
     public Line transformRecInLine4(){
         String line4 = "";
-        Line li4 = new Line(line4, 0, this.getX()+this.getW(), this.getY(),this.getX()+ this.getW(), this.getY()+ this.getH());
+        Line li4 = new Line(line4, 0, this.getX()+this.getL(), this.getY(),this.getX()+ this.getL(), this.getY()+ this.getH());
         return li4;
     }
 

@@ -15,6 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * Command Process
  */
 class Command_processTest {
+    private final double vincentx1 = 4.0;
+    private final double vincenty1 = 8.0;
+    private final double vincentx2 = 9.0;
+    private final double vincenty2 = 4.0;
     private final String commandRect = "rectangle rec 4 9 4 3";
     private final String commandCir = "circle cir 5 4 2";
     private final String commandCir2 = "circle cir2 3 3 3";
@@ -45,7 +49,7 @@ class Command_processTest {
     private final String commandIntersect17 = "intersect n cir2";
     private final String commandList = "list lin";
     private final String commandListAll = "listAll";
-    private Line vincent = new Line("lin",3, 4.0f, 8f, 9f, 4f);
+    private Line vincent = new Line("lin",3, vincentx1, vincenty1, vincentx2, vincenty2);
     private Circle circle = new Circle("cir", 2, 5, 4, 2);
     private Circle circle2 = new Circle("cir2", 5, 3, 3, 3);
     private Square squa = new Square("squ", 4,2, 3, 3);
@@ -78,7 +82,7 @@ class Command_processTest {
         assertEquals(rectangle.getX(),rect.getX());
         assertEquals(rectangle.getY(),rect.getY());
         assertEquals(rectangle.getH(),rect.getH());
-        assertEquals(rectangle.getW(),rect.getW());
+        assertEquals(rectangle.getL(),rect.getL());
         assertEquals(rectangle.getName(),rect.getName());
         Command_process command2 = new Command_process(commandCir,listShapeAll,listGroup,nbShapeCreate);
         // ListShapeAll = [rec, cir]
@@ -110,7 +114,7 @@ class Command_processTest {
         assertEquals(recgroupinit.getX(), recgroupfin.getX());
         assertEquals(recgroupinit.getY(), recgroupfin.getY());
         assertEquals(recgroupinit.getH(), recgroupfin.getH());
-        assertEquals(recgroupinit.getW(), recgroupfin.getW());
+        assertEquals(recgroupinit.getL(), recgroupfin.getL());
         assertEquals(recgroupinit.getName(), recgroupfin.getName());
         Command_process command6 = new Command_process(commandUngroup,listShapeAll,listGroup,nbShapeCreate);
         // ListShapeAll = [lin, squ, rec, cir]
@@ -129,7 +133,7 @@ class Command_processTest {
         assertEquals(rectangle.getX(), rectafteragroup.getX());
         assertEquals(rectangle.getY(), rectafteragroup.getY());
         assertEquals(rectangle.getH(), rectafteragroup.getH());
-        assertEquals(rectangle.getW(), rectafteragroup.getW());
+        assertEquals(rectangle.getL(), rectafteragroup.getL());
         assertEquals(rectangle.getName(), rectafteragroup.getName());
         Command_process command7 = new Command_process(commandPick_and_move,listShapeAll,listGroup,nbShapeCreate);
         //ListShapeAll = [lin, squ(moved), rec, cir]
