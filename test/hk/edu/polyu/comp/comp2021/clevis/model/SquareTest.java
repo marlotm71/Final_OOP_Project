@@ -16,16 +16,35 @@ import static org.junit.jupiter.api.Assertions.*;
  * Class Sqauare Test
  */
 class SquareTest {
-    private Square Squid = new Square("Squid",3,3.0f,3.0f,3.0f);
-    private Line SquidLine1 = new Line("SquidLine1", 2, 3,3,6,3);
-    private Line SquidLine2 = new Line("SquidLine2", 2, 3,3,3,6);
-    private Line SquidLine3 = new Line("SquidLine3", 2, 3,6,6,6);
-    private Line SquidLine4 = new Line("SquidLine4", 2, 6,3,6,6);
-    private Square Ken = new Square("Ken",7,7.0f,7.0f,7.0f);
-    private Square Bobby = new Square("Bobby",2,2.0f,2.0f,2.0f);
-    private Square Charlemagne = new Square("Charlemagne",1,1.0f,1.0f,1.0f);
-    private Square Stan = new Square("Stan",4,4.0f,4.0f,4.0f);
-    private Square Eli = new Square("Eli", 9,9.0f,9.0f,9.0f);
+    private final int SquidzOrder =  3;
+    private final double Squidx = 3;
+    private final double Squidy = 3;
+    private final double Squidl = 3;
+    private Square Squid = new Square("Squid",SquidzOrder,Squidx,Squidy,Squidl);
+    private final int Squidline1zorder =  2;
+    private final double Squidline1x = 3;
+    private final double Squidline1y = 3;
+    private final double Squidline1x2 = 6;
+    private final double Squidline1y2 = 3;
+    private Line SquidLine1 = new Line("SquidLine1", Squidline1zorder, Squidline1x,Squidline1y,Squidline1x2,Squidline1y2);
+    private final int Squidline2zorder =  2;
+    private final double Squidline2x = 3;
+    private final double Squidline2y = 3;
+    private final double Squidline2x2 = 3;
+    private final double Squidline2y2 = 6;
+    private Line SquidLine2 = new Line("SquidLine2", Squidline2zorder, Squidline2x,Squidline2y,Squidline2x2,Squidline2y2);
+    private final int Squidline3zorder =  2;
+    private final double Squidline3x = 3;
+    private final double Squidline3y = 6;
+    private final double Squidline3x2 = 6;
+    private final double Squidline3y2 = 6;
+    private Line SquidLine3 = new Line("SquidLine3", Squidline3zorder, Squidline3x,Squidline3y,Squidline3x2,Squidline3y2);
+    private final int Squidline4zorder =  2;
+    private final double Squidline4x = 6;
+    private final double Squidline4y = 3;
+    private final double Squidline4x2 = 6;
+    private final double Squidline4y2 = 6;
+    private Line SquidLine4 = new Line("SquidLine4", Squidline4zorder, Squidline4x,Squidline4y,Squidline4x2,Squidline4y2);
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     /**
@@ -50,10 +69,14 @@ class SquareTest {
      */
     @Test
     public void move() {
-        Squid.move(2,4);
+        final double dx = 2;
+        final double dy = 2;
+        Squid.move(dx,dy);
         assertEquals(5, Squid.getX());
         assertEquals(7,Squid.getY());
-        Squid.move(-20,-20);
+        final double dx2 = -20;
+        final double dy2 = -20;
+        Squid.move(dx2,dy2);
         Assert.assertEquals("The new square coordinates are : (5.0,7.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
     }
     /**
@@ -69,37 +92,21 @@ class SquareTest {
      */
     @Test
     void max_coordinate_x() {
-        //max_coordinate_x() return getX() + l
-        //length cannot be zero, negative, empty of null
-        //max_coordinate_x can be zero or negative as x can be zero or negative
-        assertTrue(Ken.getL() > 0);
-        assertFalse(Ken.getL() <= 0);
-        assertEquals(13,new Square("Him",5,3.0f,12.0f,10.0f).max_coordinate_x());
-        assertEquals(16, new Square("Her", 6,13.0f,7.0f,3.0f).max_coordinate_x());
-        //assertEquals(3, new Rectangle("Fed",6,21.0f,32.0f,12.0f,29.0f).min_coordinate_y());
+        assertEquals(6,Squid.max_coordinate_x());
     }
     /**
      * Test getter of the maximum coordinate y of the square
      */
     @Test
     void max_coordinate_y() {
-        //max_coordinate_y() return getY()
-        //max_coordinate_y can be a negative number or 0, as Y has a chance of being 0 or a negative number
-        assertNotNull(Bobby.getY()); // Y coordinate can be negative, but must be given, not be Null or empty
-        assertNotEquals(" ",Bobby.getY());
-        assertEquals(164, new Square("Wally", 8, 6.0f, 74.0f,90.0f).max_coordinate_y());
-        assertEquals(72, new Square("Sally", 6, 12.0f,12.0f, 60.0f).max_coordinate_y());
+        assertEquals(6,Squid.max_coordinate_y());
     }
     /**
      * Test getter of the minimum coordinate x of the square
      */
     @Test
     void min_coordinate_x() {
-        //min_coordinate_x() return getX()
-        assertNotNull(Charlemagne.getX());// in this test x can be a negative number, but it must not be NULL or empty
-        assertNotEquals(" ",Charlemagne.getX());
-        assertEquals(54, new Square("Garry",7,54.0f,32.0f,43.0f).min_coordinate_x());
-        assertEquals(88, new Square("Dominic", 4, 88.0f, 50.1f, 45.5f).min_coordinate_x());
+        assertEquals(3, Squid.min_coordinate_x());
 
     }
     /**
@@ -107,19 +114,16 @@ class SquareTest {
      */
     @Test
     void min_coordinate_y() {
-        assertTrue(Eli.getL() > 0); // make sure Length is bigger than 0 and negative numbers
-        assertFalse(Eli.getL() <= 0); // make sure length is bigger than 0 and negative numbers
-        assertEquals(34, new Square("Eunice",3,90.0f,34.0f,2.0f).min_coordinate_y());
-        assertEquals(2, new Square("Kelly", 1, 56.0f,2.0f,5.0f).min_coordinate_y());
+        assertEquals(3, Squid.min_coordinate_y());
     }
     /**
      * Test the distance between point chosen and the square
      */
     @Test
     void distancePoint() {
-        assertTrue(Eli.distancePoint(10.0f,10.0f));
-        assertFalse(Stan.distancePoint(15.0f,16.0f));
-
+        final double pointx = 5;
+        final double pointy = 5;
+        assertTrue(Squid.distancePoint(pointx,pointy));
     }
     /**
      * Test the transformation of the side 1 of the square in line

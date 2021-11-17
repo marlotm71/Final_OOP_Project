@@ -96,6 +96,7 @@ public class Circle extends Figure_geo {
     }
     private final double error = 0.05;
 
+
     /**
      * Error if the grid is not present in the grid
      */

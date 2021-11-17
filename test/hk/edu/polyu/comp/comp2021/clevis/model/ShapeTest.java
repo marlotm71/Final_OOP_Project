@@ -8,12 +8,39 @@ import static org.junit.jupiter.api.Assertions.*;
  * Classe Shape Test
  */
 class ShapeTest {
-    private Circle Pat = new Circle("Pat",2,5.0f,7.0f,10.f);
-    private Rectangle Jim = new Rectangle("Kyle",4,9.0f,12.0f,23.0f,14.0f);
-    private Line lin = new Line("Lin",2,43.0f,12.0f,13.0f,15.0f);
-    private Square Eli = new Square("Eli", 9,9.0f,9.0f,9.0f);
-    private Rectangle Tim = new Rectangle("Tim",5,5.0f,5.0f,5.0f,5.0f);
-    private Circle Cleofe = new Circle("Cleofe",10,10.0f,10.0f,10.0f);
+    private final int patzorder =  2;
+    private final double patx = 5;
+    private final double paty = 7;
+    private final double patr = 10;
+    private final int jimzorder =  2;
+    private final double jimx = 9;
+    private final double jimy = 12;
+    private final double jimw = 23;
+    private final double jimh = 14;
+    private final int linzorder =  2;
+    private final double linx = 43;
+    private final double liny = 12;
+    private final double linx2 = 13;
+    private final double liny2 = 15;
+    private final int Elizorder =  3;
+    private final double Elix = 9;
+    private final double Eliy = 9;
+    private final double Elil = 9;
+    private final int Timzorder =  5;
+    private final double Timx = 5;
+    private final double Timy = 5;
+    private final double Timw = 5;
+    private final double Timh = 5;
+    private final int Cleofezorder =  10;
+    private final double Cleofex = 10;
+    private final double Cleofey = 10;
+    private final double Cleofer = 10;
+    private Circle Pat = new Circle("Pat",patzorder,patx,paty,patr);
+    private Rectangle Jim = new Rectangle("Kyle",jimzorder,jimx,jimy,jimw,jimh);
+    private Line lin = new Line("Lin",linzorder,linx,liny,linx2,liny2);
+    private Square Eli = new Square("Eli", Elizorder,Elix,Eliy,Elil);
+    private Rectangle Tim = new Rectangle("Tim",Timzorder,Timx,Timy,Timw,Timh);
+    private Circle Cleofe = new Circle("Cleofe",Cleofezorder,Cleofex,Cleofey,Cleofer);
 
     /**
      * Test getter ZOrder of this shape
@@ -23,8 +50,10 @@ class ShapeTest {
         //zOrder should not be null or empty
         assertNotNull(Pat.getzOrder());
         assertNotEquals(" ", Jim.getzOrder());
-        assertEquals(1,new Line("lin",1,2.0f,3.0f,4.0f,5.0f).getzOrder());
-        assertEquals(2,new Circle("Kimmy",2,1.0f,4.0f,3.0f).getzOrder());
+        final double xpectededJimz = 2;
+        final double xpectededCleofz = 2;
+        assertEquals(xpectededJimz,Jim.getzOrder());
+        assertEquals(xpectededCleofz,Cleofe.getzOrder());
     }
     /**
      * Test getter the name of this shape
@@ -34,8 +63,8 @@ class ShapeTest {
         //name should not be null or empty
         assertNotNull(lin.getName());
         assertNotEquals(" ", lin.getName());
-        assertEquals("lin",new Line("lin",1,2.0f,3.0f,4.0f,5.0f).getName());
-        assertEquals("Doyle", new Rectangle("Doyle",4,13.0f,35.0f,14.0f,10.0f).getName());
+        assertEquals("lin",lin.getName());
+        assertEquals("Kyle", Jim.getName());
 
     }
     /**
@@ -43,40 +72,56 @@ class ShapeTest {
      */
     @Test
     void max_coordinate_x() {
-        assertEquals(16, new Square("Her", 6,13.0f,7.0f,3.0f).max_coordinate_x());
-        assertEquals(12,new Rectangle("Dobry",7,5.0f,7.0f,7.0f,5.0f).max_coordinate_x());
-        assertEquals(12.0, new Line("Khan",8,12.0f,5.0f,12.0f,8.0f).max_coordinate_x());
-        assertEquals(2,new Circle("Den",1,1.0f,1.0f,1.0f).max_coordinate_x());
+        final double xpectededElimaxx = 18;
+        final double xpectededCleofmaxx = 20;
+        final double xpectededlinmaxx = 20;
+        final double xpectededTimmaxx = 20;
+        assertEquals(xpectededElimaxx, Eli.max_coordinate_x());
+        assertEquals(xpectededCleofmaxx,Cleofe.max_coordinate_x());
+        assertEquals(xpectededlinmaxx, lin.max_coordinate_x());
+        assertEquals(xpectededTimmaxx,Tim.max_coordinate_x());
     }
     /**
      * Test getter max coordinate y of this shape
      */
     @Test
     void max_coordinate_y() {
-        assertEquals(5,new Circle("Cam",1,1.0f,3.0f,2.0f).max_coordinate_y());
-        assertEquals(23, new Line("Parker",6,15.0f,23.0f,15.0f,17.0f).max_coordinate_y());
-        assertEquals(14,new Rectangle("Game",4,5.0f,12.0f,9.0f,2.0f).max_coordinate_y());
-        assertEquals(72, new Square("Sally", 6, 12.0f,12.0f, 60.0f).max_coordinate_y());
+        final double xpectededCleofmaxy = 20;
+        final double xpectededJimmaxy = 26;
+        final double xpectededElimaxy= 18;
+        final double xpectededPatmaxy= 17;
+        assertEquals(xpectededCleofmaxy,Cleofe.max_coordinate_y());
+        assertEquals(xpectededJimmaxy, Jim.max_coordinate_y());
+        assertEquals(xpectededElimaxy,Eli.max_coordinate_y());
+        assertEquals(xpectededPatmaxy, Pat.max_coordinate_y());
     }
     /**
      * Test getter min coordinate x of this shape
      */
     @Test
     void min_coordinate_x() {
-        assertEquals(1,new Circle("Joseph",1,3.0f,5.0f,2.0f).min_coordinate_x());
-        assertEquals(13, new Line("Dennis",9, 13.0f, 24.0f,17.0f, 19.0f).min_coordinate_x());
-        assertEquals(10,new Rectangle("Bob",5,10.0f,6.9f,12.0f,3.9f).min_coordinate_x());
-        assertEquals(88, new Square("Dominic", 4, 88.0f, 50.1f, 45.5f).min_coordinate_x());
+        final double xpectededCleofminx = 0;
+        final double xpectededJimminx= 9;
+        final double xpectededEliminx= 9;
+        final double xpectededPatminx= 0;
+        assertEquals(xpectededCleofminx,Cleofe.min_coordinate_x());
+        assertEquals(xpectededJimminx, Jim.min_coordinate_x());
+        assertEquals(xpectededEliminx,Eli.min_coordinate_x());
+        assertEquals(xpectededPatminx, Pat.min_coordinate_x());
     }
     /**
      * Test getter min coordinate y of this shape
      */
     @Test
     void min_coordinate_y() {
-        assertEquals(10,new Circle("Danny",1,3.0f,15.0f,5.0f).min_coordinate_y());
-        assertEquals(32, new Line("Jenny",9, 45.0f, 32.0f,54.0f, 73.0f).min_coordinate_y());
-        assertEquals(28, new Rectangle("Kam",9,8.0f,28.0f,11.0f,31.0f).min_coordinate_y());
-        assertEquals(34, new Square("Eunice",3,90.0f,34.0f,2.0f).min_coordinate_y());
+        final double xpectededCleofminy = 0;
+        final double xpectededPatminy= 0;
+        final double xpectededEliminy= 9;
+        final double xpectededJimminy= 12;
+        assertEquals(xpectededCleofminy,Cleofe.min_coordinate_y());
+        assertEquals(xpectededJimminy, Pat.min_coordinate_y());
+        assertEquals(xpectededEliminy, Eli.min_coordinate_y());
+        assertEquals(xpectededPatminy, Jim.min_coordinate_y());
 
     }
 }

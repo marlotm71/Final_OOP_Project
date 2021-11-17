@@ -38,7 +38,7 @@ public class Command_process {
                 CheckPositive(h);
                 nbSCreate.setNbshapecreate(nbSCreate.getNbshapecreate()+1);
                 nbSCreatebis = nbSCreate.getNbshapecreate();
-                Rectangle rect = new Rectangle(name_Figure_geo, nbSCreatebis, x, y, w, h);
+                Rectangle rect = new Rectangle(name_Figure_geo, nbSCreatebis, x, y,w,h);
                 listShapeAll.add(rect);
                 break;
             case ("circle"):

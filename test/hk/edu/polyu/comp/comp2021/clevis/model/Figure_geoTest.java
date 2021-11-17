@@ -238,13 +238,11 @@ class Figure_geoTest {
     }
 
     private final double DianaAEY;
-
     {
         DianaAEY = 23.0;
     }
 
     private final double Dianay;
-
     {
         Dianay = 23.0;
     }

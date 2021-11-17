@@ -12,8 +12,6 @@ abstract public class Shape {
      * @param zOrder : Z order of the shape
      */
     public Shape(String name, int zOrder) {
-        //ecrire dans les fichiers txt et html
-        // creer une figure generale avec les parmètres generaux
         this.name=name;
         this.zOrder = zOrder;
     }

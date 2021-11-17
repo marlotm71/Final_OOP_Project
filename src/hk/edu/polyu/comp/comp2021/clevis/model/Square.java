@@ -41,8 +41,6 @@ public class Square extends Figure_geo {
             System.out.println("The new coordinates are not in the grid");
         }}
 
-
-
     @Override
     public void listFigure() {
         System.out.print("Square Name : " + this.getName() + " | ");
