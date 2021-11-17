@@ -10,10 +10,20 @@ import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GroupTest {
+    private double circlyx = 3.0;
+    private double circlyy = 3.0;
+    private double circlyr = 3.0;
+    private double cirsx = 4.0;
+    private double cirsy = 4.0;
+    private double cirsw = 4.0;
+    private double cirsh = 13.0;
+    private double groupmaxyE = 17.0;
+
+
 
     private int circlyZ = 3;
-    private Circle circly = new Circle("cir",circlyZ,3.0f,3.0f ,3.0f);
-    private Rectangle cirs = new Rectangle("cirs",4,4.0f,4.0f,4.0f,13.0f);
+    private Circle circly = new Circle("cir",circlyZ,circlyx,circlyy ,circlyr);
+    private Rectangle cirs = new Rectangle("cirs",4,cirsx,cirsy,cirsw,cirsh);
     private Circle Hans = new Circle("Hans",1,1.0f,1.0f,1.0f);
     private Shape[] listShapeGroup = new Shape[]{circly,cirs,Hans};
     private Group groupy = new Group("groupy",2,3,listShapeGroup);
@@ -58,7 +68,7 @@ class GroupTest {
     @Test
     void max_coordinate_y() {
         double groupmaxy = groupy.max_coordinate_y();
-        assertEquals(17,groupmaxy);
+        assertEquals(groupmaxyE,groupmaxy);
     }
 
     @Test
