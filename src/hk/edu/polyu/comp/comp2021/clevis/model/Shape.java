@@ -73,7 +73,7 @@ abstract public class Shape {
      * Return true or false in function if the distance with the point chosen and the shape is inferior to the Error or in the shape
      * @param x : x coordinate of the point chosen
      * @param y: y coordinate of the point chosen
-     * @return Boolean : True if < error or in the shape , else False
+     * @return Boolean : True if inferior error or in the shape , else False
      */
     abstract public boolean distancePoint(double x, double y);
 
