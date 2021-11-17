@@ -10,6 +10,9 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class Line Test
+ */
 class LineTest {
     private double x1lin = 4;
     private Line lin = new Line("Kim", 2, x1lin,2.0f,8.0f,7.0f);
@@ -44,12 +47,17 @@ class LineTest {
 
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
+    /**
+     * Method to retrieve outline
+     */
     @BeforeEach
     public void setUp(){
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    /**
+     * Test getter second coordinate X
+     */
     @Test
     void getX2() {
         //x2 cannot be empty or null
@@ -58,7 +66,9 @@ class LineTest {
         assertEquals(13, new Line("Sara",4,12.0f,32.0f,13.0f,26.0f).getX2());
 
     }
-
+    /**
+     * Test getter second coordinate y
+     */
     @Test
     void getY2() {
         //Y2 cannot be empty or null
@@ -67,21 +77,28 @@ class LineTest {
         assertEquals(34, new Line("Henry", 1, 33.0f,12.0f,54.0f,34.0f).getY2());
     }
 
-
+    /**
+     * Test leading coefficient of the line
+     */
     @Test
-    void coefDir() {
+    void leadCoef() {
         assertEquals(1,new Line("Lem",1,32.0f,32.0f,32.0f,32.0f).leadCoef());
         assertEquals(1,new Line("Lemmy",4,15.0f,20.0f,25.0f,30.0f).leadCoef());
 
 
     }
-
+    /**
+     * Test Ordinate at the origin of this line
+     */
     @Test
     void b() {
         assertEquals(5,new Line("Karen",3,15.0f,20.0f,35.0f,40.0f).b());
         assertEquals(28,new Line("Kerry",4,15.0f,25.0f,40.0f,20.0f).b());
     }
 
+    /**
+     * Test move the line
+     */
     @Test
     void move() {
         //max_coordinate_x can be negative, positive and 0
@@ -92,39 +109,51 @@ class LineTest {
         assertEquals(12,lin.getY2());
 
     }
-
+    /**
+     * Test list characteristics of the line
+     */
     @Test
     public void listFigure() {
         lin.listFigure();
         Assert.assertEquals("Line Name : Kim | Coordinates : (4.0,2.0) to (8.0,7.0)",outputStreamCaptor.toString().trim());
     }
 
-
+    /**
+     * Test getter max coordinate x of the line
+     */
     @Test
     void max_coordinate_x() {
         //max_coordinate_x can be negative, positive and 0
         assertEquals(9, new Line("borat",7,3.0f,12.0f,9.0f,34.0f).max_coordinate_x());
         assertEquals(12.0, new Line("Khan",8,12.0f,5.0f,12.0f,8.0f).max_coordinate_x());
     }
-
+    /**
+     * Test getter max coordinate y of the line
+     */
     @Test
     void max_coordinate_y() {
         assertEquals(16, new Line("Peter",8,12.0f,15.0f,17.0f,16.0f).max_coordinate_y());
         assertEquals(23, new Line("Parker",6,15.0f,23.0f,15.0f,17.0f).max_coordinate_y());
     }
-
+    /**
+     * Test getter min coordinate x of the line
+     */
     @Test
     void min_coordinate_x() {
         assertEquals(13, new Line("Dennis",9, 13.0f, 24.0f,17.0f, 19.0f).min_coordinate_x());
         assertEquals(13, new Line("Dennis",9, 27.0f, 23.0f,13.0f, 12.0f).min_coordinate_x());
     }
-
+    /**
+     * Test getter min coordinate y of the line
+     */
     @Test
     void min_coordinate_y() {
         assertEquals(32, new Line("Jenny",9, 45.0f, 32.0f,54.0f, 73.0f).min_coordinate_y());
         assertEquals(21, new Line("Dennis",9, 45.0f, 21.0f,42.0f, 32.0f).min_coordinate_y());
     }
-
+    /**
+     * Test getter min coordinate x of the line
+     */
     @Test
     void distancePoint() {
         assertFalse(lin.distancePoint(3.0f,6.0f));
