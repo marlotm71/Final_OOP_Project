@@ -59,7 +59,7 @@ public class Clevistools{
 
     public void WriteHtml(String command,Path vile){
         try {
-            Files.writeString(vile, "||" + command + System.lineSeparator() + "\r\n" , StandardOpenOption.APPEND);
+            Files.writeString(vile, "||" + command + System.lineSeparator() + "<br>" , StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
         }
