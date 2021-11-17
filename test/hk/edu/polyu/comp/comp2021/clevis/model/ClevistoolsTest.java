@@ -32,9 +32,4 @@ public class ClevistoolsTest {
                 "|________________________________________________________________________|",welcome);
     }
 
-    @Test
-    public void CommandUser(){
-        String command = tools.CommandUser();
-    }
-
 }
