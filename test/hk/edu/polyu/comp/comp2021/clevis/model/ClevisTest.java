@@ -5,6 +5,10 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ClevisTest {
+    private double Vincentx1 = 4.0;
+    private double Vincenty1 = 8.0;
+    private double Vincentx2 = 9.0;
+    private double Vincenty2 = 4.0;
 
     String commandRect = "rectangle rec 4 9 4 3";
     String commandCir = "circle cir 5 4 2";
@@ -19,7 +23,7 @@ public class ClevisTest {
     String intersect = "intersect squ cir";
     String list = "list rect";
     String listAll = "listAll";
-    private Line vincent = new Line("Vincent",3, 4.0f, 8f, 9f, 4f);
+    private Line vincent = new Line("Vincent",3, Vincentx1, Vincenty1, Vincentx2, Vincenty2);
     private Circle circle = new Circle("Circle", 2, 5, 4, 2);
     private Square squa = new Square("Square", 2,2, 3, 3);
     private Rectangle rectangle = new Rectangle("Rectangle", 4,4, 9, 4, 3);
