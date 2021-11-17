@@ -8,6 +8,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Command_processTest {
+    private double vincentx1 = 4.0;
+    private double vincenty1 = 8.0;
+    private double vincentx2 = 9.0;
+    private double vincenty2 = 4.0;
     String commandRect = "rectangle rec 4 9 4 3";
     String commandCir = "circle cir 5 4 2";
     String commandLine = "line lin 4 8 9 4";
@@ -21,7 +25,7 @@ class Command_processTest {
     String commandIntersect = "intersect squ cir";
     String commandList = "list rect";
     String commandListAll = "listAll";
-    private Line vincent = new Line("lin",3, 4.0f, 8f, 9f, 4f);
+    private Line vincent = new Line("lin",3, vincentx1, vincenty1, vincentx2, vincenty2);
     private Circle circle = new Circle("cir", 2, 5, 4, 2);
     private Circle circle2 = new Circle("cir2", 5, 3, 3, 3);
     private Square squa = new Square("squ", 4,2, 3, 3);

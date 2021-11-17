@@ -11,7 +11,8 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RectangleTest {
-    private Rectangle James = new Rectangle("James",2,2.0f,2.0f,2.0f,2.0f);
+    private double JamesX = 2.0;
+    private Rectangle James = new Rectangle("James",2,JamesX,2.0f,2.0f,2.0f);
     private Line JamesLine1 = new Line("JameLine1", 2, 2,2,4,2);
     private Line JamesLine2 = new Line("JameLine2", 2, 2,2,2,4);
     private Line JamesLine3 = new Line("JameLine3", 2, 2,4,4,4);
