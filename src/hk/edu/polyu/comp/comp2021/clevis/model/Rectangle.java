@@ -33,10 +33,10 @@ public class Rectangle extends Figure_geo {
                 System.out.println("The new Rectangle coordinates are : (" + this.getX() + "," + this.getY() + ")");
             }
             else{
-                throw new Circle.FigureNotInGridError();
+                throw new Rectangle.FigureNotInGridError();
             }
         }
-        catch (Circle.FigureNotInGridError f){
+        catch (Rectangle.FigureNotInGridError f){
         System.out.println("The new coordinates are not in the grid");
         }
     }
@@ -115,5 +115,6 @@ public class Rectangle extends Figure_geo {
     private final double error = 0.05;
 
 
-
+    public class FigureNotInGridError extends Throwable {
+    }
 }

@@ -67,12 +67,4 @@ class ShapeTest {
         assertEquals(34, new Square("Eunice",3,90.0f,34.0f,2.0f).min_coordinate_y());
 
     }
-
-    @Test
-    void distancePoint() {
-        assertFalse(Eli.distancePoint(10.0f,10.0f));
-        assertFalse(Tim.distancePoint(5.0f,5.0f));
-        assertTrue(Cleofe.distancePoint(4.0f,9.0f));
-
-    }
 }

@@ -42,6 +42,14 @@ class GroupTest {
     }
 
     @Test
+    public void move() {
+        groupy.move(2,4);
+        Circle circleOfGroupby = (Circle) groupy.getListShape()[0];
+        assertEquals(5, circleOfGroupby.getX());
+        assertEquals(7, circleOfGroupby.getY());
+    }
+
+    @Test
     void max_coordinate_x() {
         double groupmaxx = groupy.max_coordinate_x();
         assertEquals(8, groupmaxx);
@@ -67,8 +75,12 @@ class GroupTest {
 
     @Test
     void distancePoint() {
-        assertTrue(groupy.distancePoint(100.0f,100.0f));
-        assertFalse(groupy.distancePoint(3f,4f));
+        final double point1x = 6;
+        final double point1y =5;
+        final double point2x = 13;
+        final double point2y = 3;
+        assertTrue(groupy.distancePoint(point1x,point1y));
+        assertFalse(groupy.distancePoint(point2x,point2y));
     }
 
 

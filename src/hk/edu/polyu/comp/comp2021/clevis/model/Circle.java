@@ -23,15 +23,11 @@ public class Circle extends Figure_geo {
                 setY(getY()+dy);
                 System.out.println("The new Circle coordinates are : (" + this.getX() + "," + this.getY() + ")");
             }
-            else{
-                throw new FigureNotInGridError();
-            }
+            else throw new FigureNotInGridError();
         }
         catch (FigureNotInGridError f){
             System.out.println("The new coordinates are not in the grid");
         }
-
-
     }
 
     @Override
@@ -63,31 +59,21 @@ public class Circle extends Figure_geo {
 
     @Override
     public boolean distancePoint(double x, double y) {
-        double error = 0.05;
-        if(Math.sqrt((Math.pow((this.getX()-x),2) + Math.pow((this.getY()-y),2))) < (this.getR() + error)){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return Math.sqrt((Math.pow((this.getX() - x), 2) + Math.pow((this.getY() - y), 2))) < (this.getR() + error);
     }
 
     @Override
     void draw(Graphics g1) {
+        final int multiplyby2 = 2;
         Graphics2D g = (Graphics2D) g1;
-        Ellipse2D circle = new Ellipse2D.Double(getX() - getR(), getY() - getR(), getR() * 2.0, getR() * 2.0);
+        Ellipse2D circle = new Ellipse2D.Double(getX() - getR(), getY() - getR(), getR() * multiplyby2, getR() * multiplyby2);
         g.draw(circle);
     }
 
-
     public boolean intersect(Circle other) {
-        boolean intersect =false;
         double d=Math.sqrt(Math.pow(this.getX()-other.getX(),2)+Math.pow(this.getY()-other.getY(),2));
-        if(d<=(this.getR()+ other.getR()) && d>=Math.abs(this.getR()- other.getR()) && (d!=0 || this.getR()!=other.getR() )){
-            intersect=true;
-        }
-        return intersect;
+        return d <= (this.getR() + other.getR()) && d >= Math.abs(this.getR() - other.getR()) && (d != 0 || this.getR() != other.getR());
     }
-
+    private final double error = 0.05;
     static class FigureNotInGridError extends Error{}
 }

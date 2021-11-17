@@ -12,6 +12,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RectangleTest {
     private Rectangle James = new Rectangle("James",2,2.0f,2.0f,2.0f,2.0f);
+    private Line JamesLine1 = new Line("JameLine1", 2, 2,2,4,2);
+    private Line JamesLine2 = new Line("JameLine2", 2, 2,2,2,4);
+    private Line JamesLine3 = new Line("JameLine3", 2, 2,4,4,4);
+    private Line JamesLine4 = new Line("JameLine4", 2, 4,2,4,4);
     private Rectangle John = new Rectangle("John",6,6.0f,6.0f,6.0f,6.0f);
     private Rectangle Tim = new Rectangle("Tim",5,5.0f,5.0f,5.0f,5.0f);
     private Rectangle Lam = new Rectangle("Lam",4,4.0f,4.0f,4.0f,4.0f);
@@ -104,4 +108,37 @@ class RectangleTest {
         assertFalse(Lam.distancePoint(10.0f,10.0f));
         assertTrue(Marion.distancePoint(13.04f,5.0f));
     }
+
+    @Test
+    void transformRecInLine1() {
+        assertEquals(JamesLine1.getX(), James.transformRecInLine1().getX());
+        assertEquals(JamesLine1.getY(), James.transformRecInLine1().getY());
+        assertEquals(JamesLine1.getX2(), James.transformRecInLine1().getX2());
+        assertEquals(JamesLine1.getY2(), James.transformRecInLine1().getY2());
+    }
+
+    @Test
+    void transformRecInLine2() {
+        assertEquals(JamesLine2.getX(), James.transformRecInLine2().getX());
+        assertEquals(JamesLine2.getY(), James.transformRecInLine2().getY());
+        assertEquals(JamesLine2.getX2(), James.transformRecInLine2().getX2());
+        assertEquals(JamesLine2.getY2(), James.transformRecInLine2().getY2());
+    }
+
+    @Test
+    void transformRecInLine3() {
+        assertEquals(JamesLine3.getX(), James.transformRecInLine3().getX());
+        assertEquals(JamesLine3.getY(), James.transformRecInLine3().getY());
+        assertEquals(JamesLine3.getX2(), James.transformRecInLine3().getX2());
+        assertEquals(JamesLine3.getY2(), James.transformRecInLine3().getY2());
+    }
+
+    @Test
+    void transformRecInLine4() {
+        assertEquals(JamesLine4.getX(), James.transformRecInLine4().getX());
+        assertEquals(JamesLine4.getY(), James.transformRecInLine4().getY());
+        assertEquals(JamesLine4.getX2(), James.transformRecInLine4().getX2());
+        assertEquals(JamesLine4.getY2(), James.transformRecInLine4().getY2());
+    }
+
 }

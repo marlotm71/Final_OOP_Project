@@ -11,7 +11,8 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LineTest {
-    private Line lin = new Line("Kim", 2, 4.0f,2.0f,8.0f,7.0f);
+    private double x1lin = 4;
+    private Line lin = new Line("Kim", 2, x1lin,2.0f,8.0f,7.0f);
     private Line gaut= new Line("Gaut", 2, 2.0f,7.0f,5.0f,10.0f);
     private Line marion= new Line("Marion", 2, 8.0f,2.0f,13.0f,2.0f);
     private Line gaut1= new Line("Gaut1", 2, 3.0f,2.0f,7.0f,7.0f);
