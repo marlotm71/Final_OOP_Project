@@ -108,7 +108,6 @@ public class Command_process {
                         int nbshape = group.getSize();
                         for (int i = 0; i < nbshape; i++) {
                             listShapeAll.add(group.getListShape()[i]);
-                            System.out.println(group.getListShape()[i].getName());
                         }
                     }break;}
                 break;
@@ -142,7 +141,6 @@ public class Command_process {
                 System.out.println("Thanks, for your participation to Clevis");
                 System.exit(0);
                 break;
-
             case ("move"):
                 name_Figure_geo = st.nextToken();
                 double dx = Float.parseFloat(st.nextToken());
@@ -150,41 +148,29 @@ public class Command_process {
                 for (Shape elmtShapeAll : listShapeAll) {
                     if (elmtShapeAll.getName().equals(name_Figure_geo)) {
                         elmtShapeAll.move(dx, dy);
-                    }
-                    else{
-                        System.out.println("Shape not recognized");
-                    }
-                }
+                        break;}}
                 break;
-
             case ("boundingbox"):
                 name_Figure_geo = st.nextToken();
                 double boundingboxX = 0;
                 double boundingboxY = 0;
                 double boundingboxW = 0;
                 double boundingboxH = 0;
-
                 for (Shape elmtShapeAll : listShapeAll) {
                     if (elmtShapeAll.getName().equals(name_Figure_geo)) {
                         if (elmtShapeAll.min_coordinate_x()<0){
-                            boundingboxX = 0;
-                        }
+                            boundingboxX = 0;}
                         else if (elmtShapeAll.min_coordinate_x()>=0){
-                            boundingboxX= elmtShapeAll.min_coordinate_x();
-                        }
+                            boundingboxX= elmtShapeAll.min_coordinate_x();}
                         if (elmtShapeAll.min_coordinate_y()<0){
-                            boundingboxY = 0;
-                        }
+                            boundingboxY = 0;}
                         else if (elmtShapeAll.min_coordinate_y()>=0){
-                            boundingboxY= elmtShapeAll.min_coordinate_y();
-                        }
+                            boundingboxY= elmtShapeAll.min_coordinate_y();}
                         boundingboxW = elmtShapeAll.max_coordinate_x()-boundingboxX;
-                        boundingboxH = elmtShapeAll.max_coordinate_y()-boundingboxY;
-                    }
+                        boundingboxH = elmtShapeAll.max_coordinate_y()-boundingboxY;}
                 }
-                System.out.println(boundingboxX + " " + boundingboxY + " " + boundingboxW + " " + boundingboxH);
+                System.out.println("Boundingbox : " + boundingboxX + " " + boundingboxY + " " + boundingboxW + " " + boundingboxH);
                 break;
-
             case ("pick-and-move"):
                 double pmX = Float.parseFloat(st.nextToken());
                 double pmY = Float.parseFloat(st.nextToken());
@@ -195,27 +181,21 @@ public class Command_process {
                 List<Shape> listShapePM = new ArrayList<>();
                 for (Shape elmtShapeAll : listShapeAll) {
                     if (elmtShapeAll.distancePoint(pmX, pmY)) {
-                        listShapePM.add(elmtShapeAll);
-                    }
+                        listShapePM.add(elmtShapeAll);}
                 }
                 if (listShapePM.isEmpty()) {
-                    throw new Clevis.Pick_and_move_Error();
-                }
+                    throw new Clevis.Pick_and_move_Error();}
                 else {
                     for (Shape elmtShapePM : listShapePM) {
                         if (elmtShapePM.getzOrder() >= maxzOrder) {
                             shapeToMove = elmtShapePM;
-                            maxzOrder = elmtShapePM.getzOrder();
-                        }
+                            maxzOrder = elmtShapePM.getzOrder();}
                     }
                     for (Shape elmtShapeAll : listShapeAll) {
                         if ((elmtShapeAll.getName()).equals(shapeToMove.getName())) {
-                            elmtShapeAll.move(pmDx, pmDy);
-                        }
-                    }
-                }
+                            elmtShapeAll.move(pmDx, pmDy);}
+                    }}
                 break;
-
             case ("intersect"):
                 name_Figure_geo = st.nextToken();
                 String name_Figure_geo2 = "";
@@ -224,22 +204,13 @@ public class Command_process {
                 Shape shape2 = null;
                 boolean intersect = false;//find both shapes in listShapeAll
                 for (Shape elmtShapeAll : listShapeAll) {
-                    if (elmtShapeAll.getName().equals(name_Figure_geo)) {
-                        shape1 = elmtShapeAll;
-                    }
+                    if (elmtShapeAll.getName().equals(name_Figure_geo)) shape1 = elmtShapeAll;
                     if (elmtShapeAll.getName().equals(name_Figure_geo2)) {
-                        shape2 = elmtShapeAll;
-                    }
+                        shape2 = elmtShapeAll;}
                 }
-                if (shape1 == null || shape2 == null) {
-                    //shape not in listShapeAll, throw new exception
-                }
-                else {
-                    intersect = generalIntersect(shape1, shape2, listShapeAll);
-                }
-                if (intersect == true) {
-                    System.out.println("The two shape intersect with each other");
-                }
+                if (shape1 == null || shape2 == null) throw new Clevis.Fig_not_recognized();
+                else intersect = generalIntersect(shape1, shape2, listShapeAll);
+                if (intersect == true) System.out.println("The two shapes intersect with each other");
                 else {
                     System.out.println("The two shapes don't intersect with each other");
                 }
@@ -248,9 +219,7 @@ public class Command_process {
             default:
                 throw new Clevis.Fig_not_recognized();
                 //Create an error corresponding to * in case of a user command error
-        }
-
-    }
+        }}
 
     public boolean generalIntersect(Shape shape1, Shape shape2, List<Shape> listShapeAll){
         boolean intersect=false;
@@ -339,12 +308,10 @@ public class Command_process {
                     case("hk.edu.polyu.comp.comp2021.clevis.model.Group"):
                         for (Shape shape: ((Group) shape2).getListShape()){
                             if(generalIntersect(shape,shape1,listShapeAll )){
-                                intersect=true;
-                            }
+                                intersect=true;}
                         }
                         break;
-                }
-                break;
+                }break;
             case("hk.edu.polyu.comp.comp2021.clevis.model.Square"):
                 Line line10=((Square) shape1).transformSquareInLine1();
                 Line line20=((Square) shape1).transformSquareInLine2();
@@ -353,8 +320,7 @@ public class Command_process {
                 switch (classElmt2){
                     case ("hk.edu.polyu.comp.comp2021.clevis.model.Rectangle"):
                         if (line10.intersect((Rectangle) shape2)||line20.intersect((Rectangle) shape2)|| line30.intersect((Rectangle) shape2)||line40.intersect((Rectangle) shape2) ){
-                            intersect=true;
-                        }
+                            intersect=true;}
                         break;
                     case ("hk.edu.polyu.comp.comp2021.clevis.model.Circle"):
                         if (line10.intersect((Circle) shape2)||line20.intersect((Circle) shape2)|| line30.intersect((Circle) shape2)||line40.intersect((Circle) shape2) ){
@@ -363,26 +329,22 @@ public class Command_process {
                         break;
                     case("hk.edu.polyu.comp.comp2021.clevis.model.Square"):
                         if (line10.intersect((Square) shape2)||line20.intersect((Square) shape2)|| line30.intersect((Square) shape2)||line40.intersect((Square) shape2) ){
-                            intersect=true;
-                        }
+                            intersect=true;}
                         break;
                     case("hk.edu.polyu.comp.comp2021.clevis.model.Line"):
                         if (line10.intersect((Line) shape2)||line20.intersect((Line) shape2)|| line30.intersect((Line) shape2)||line40.intersect((Line) shape2) ){
-                            intersect=true;
-                        }
+                            intersect=true;}
                         break;
                     case("hk.edu.polyu.comp.comp2021.clevis.model.Group"):
                         if (line10.intersect((Group) shape2)||line20.intersect((Group) shape2)|| line30.intersect((Group) shape2)||line40.intersect((Group) shape2) ){
-                            intersect=true;
-                        }
+                            intersect=true;}
                         break;
                 }
                 break;
             case("hk.edu.polyu.comp.comp2021.clevis.model.Group"):
                 for (Shape shape: ((Group) shape1).getListShape()){
                     if(generalIntersect(shape,shape2,listShapeAll )){
-                        intersect=true;
-                    }
+                        intersect=true;}
                 }
                 break;
         }
@@ -393,21 +355,15 @@ public class Command_process {
         for (Shape shape : listShapeAll) {
             if (shape.getName().equals(name_Figure_Geo)) {
                 throw new Clevis.Name_already_used();
-            }
-        }
+            }}
         for (Group group : listGroup) {
             for (Shape shape: group.getListShape()){
                 if (shape.getName().equals(name_Figure_Geo)) {
                     throw new Clevis.Name_already_used();
-                }
-            }
-
-        }
-    }
+                }}}}
 
     public void CheckPositive(double i){
         if (i<0 ){
-            throw new Clevis.FigureNotInGridError();
-        }
+            throw new Clevis.FigureNotInGridError();}
     }
 }
