@@ -62,9 +62,6 @@ class CircleTest {
     //private double mincye = -20;
 
 
-
-
-
     private Circle circly = new Circle("cir",3,xcircly,ycircly ,rcircly);
     private Circle cirs = new Circle("cirs",4,xcirs,ycirs,rcirs);
     private Circle Hans = new Circle("Hans",1,1.0f,1.0f,1.0f);
