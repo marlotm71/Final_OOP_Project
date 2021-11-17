@@ -9,6 +9,9 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class Group Test
+ */
 class GroupTest {
 
     private int circlyZ = 3;
@@ -20,27 +23,42 @@ class GroupTest {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
+    /**
+     * Method to retrieve outline
+     */
     @BeforeEach
     public void setUp(){
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    /**
+     * Test getter list of shapes of the group
+     */
     @Test
     void getListShape() {
         assertEquals(listShapeGroup, groupy.getListShape());
     }
 
+    /**
+     * Test getter size of the group
+     */
     @Test
     void getSize() {
         assertEquals(listShapeGroup.length, groupy.getSize());
     }
 
+    /**
+     * Test listing of the main characteristics of each shape of the group
+     */
     @Test
     public void listFigure() {
         groupy.listFigure();
         Assert.assertEquals("Group Name = groupy composed by : \n   Circle Name : cir | Radius : 3.0 | Coordinates : (3.0,3.0) | \n   Rectangle Name : cirs | Height : 13.0 | Width : 4.0 | Coordinate Top Left Corner : (4.0,4.0) | \n   Circle Name : Hans | Radius : 1.0 | Coordinates : (1.0,1.0) |",outputStreamCaptor.toString().trim());
     }
 
+    /**
+     * Test moving a group
+     */
     @Test
     public void move() {
         groupy.move(2,4);
@@ -49,30 +67,41 @@ class GroupTest {
         assertEquals(7, circleOfGroupby.getY());
     }
 
+    /**
+     * Test getter the max coordinate x of the group
+     */
     @Test
     void max_coordinate_x() {
         double groupmaxx = groupy.max_coordinate_x();
         assertEquals(8, groupmaxx);
     }
-
+    /**
+     * Test getter the max coordinate y of the group
+     */
     @Test
     void max_coordinate_y() {
         double groupmaxy = groupy.max_coordinate_y();
         assertEquals(17,groupmaxy);
     }
-
+    /**
+     * Test getter the min coordinate x of the group
+     */
     @Test
     void min_coordinate_x() {
         double groupminx = groupy.min_coordinate_x();
         assertEquals(0, groupminx);
     }
-
+    /**
+     * Test getter the min coordinate y of the group
+     */
     @Test
     void min_coordinate_y() {
         double groupminy = groupy.min_coordinate_y();
         assertEquals(0, groupminy);
     }
-
+    /**
+     * Test if the distance between the point chosen and the group is superior to the error
+     */
     @Test
     void distancePoint() {
         final double point1x = 6;

@@ -6,7 +6,19 @@ import java.awt.geom.Line2D;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
+/**
+ * Class line which is a child of figure_geo
+ */
 public class Line extends Figure_geo {
+    /**
+     * Constructor of the line
+     * @param name : name of the line
+     * @param zOrder : Zorder of the line
+     * @param x1 : first coordinate x of the line
+     * @param y1 : first coordinate y of the line
+     * @param x2 : second coordinate x of the line
+     * @param y2 : second coordinate y of the line
+     */
     public Line(String name, int zOrder, double x1, double y1, double x2, double y2){
         //html & txt process
         // creating figure
@@ -15,10 +27,18 @@ public class Line extends Figure_geo {
         this.y2=y2;
     }
 
+    /**
+     * getter of the second coordinate x knowing that the first getter is provided by Figure_geo
+     * @return second coordinate x of the line
+     */
     public double getX2() {
         return x2;
     }
 
+    /**
+     * getter of the second coordinate y knowing that the first getter is provided by Figure_geo
+     * @return second coordinate y of the line
+     */
     public double getY2() {
         return y2;
     }
@@ -26,11 +46,20 @@ public class Line extends Figure_geo {
     private double x2;
     private double y2;
 
+    /**
+     * getter of the Leading Coefficient of this line
+     * @return leading coefficient
+     */
     public double leadCoef(){
         double coef=1;
         if (getX()!=getX2()) coef = (getY2() - getY()) / (getX2() - getX());
         return coef;
     }
+
+    /**
+     * Ordinate at the origin of this line
+     * @return the Ordinate at the origin of this line
+     */
     public double b(){
         return (getY()-this.leadCoef()*getX());
     }
@@ -104,6 +133,11 @@ public class Line extends Figure_geo {
         Graphics2D g = (Graphics2D) g1;
         g.draw(new Line2D.Double(getX(), getY(), getX2(), getY2()));
     }
+    /**
+     * Check if the line and the Line are intersecting each other
+     * @param other : Other Line
+     * @return true if intersection exists, false else
+     */
     public boolean intersect(Line other) {
         boolean bool=false;
         if (getX()==getX2()){
@@ -185,6 +219,11 @@ public class Line extends Figure_geo {
         }
         return bool;
     }
+    /**
+     * Check if the line and the circle are intersecting each other
+     * @param other : Other circle
+     * @return true if intersection exists, false else
+     */
     public boolean intersect(Circle other) {
         boolean bool=false;
         if (getX()==getX2()){
@@ -238,6 +277,12 @@ public class Line extends Figure_geo {
         }
         return bool;
     }
+
+    /**
+     * Check if the line and the rectangle are intersecting each other
+     * @param other : Other Rectangle
+     * @return true if intersection exists, false else
+     */
     public boolean intersect(Rectangle other) {
         String line1 = "";
         String line2 = "";
@@ -251,6 +296,11 @@ public class Line extends Figure_geo {
         if(this.intersect(li1)|| this.intersect(li2)||this.intersect(li3)||this.intersect(li4)) bool = true;
         return bool;
     }
+    /**
+     * Check if the line and the SQUARE are intersecting each other
+     * @param other : Other SQUARE
+     * @return true if intersection exists, false else
+     */
     public boolean intersect(Square other) {
         String line1 = "";
         String line2 = "";
@@ -266,6 +316,11 @@ public class Line extends Figure_geo {
         }
         return bool;
     }
+    /**
+     * Check if the line and the Group are intersecting each other
+     * @param other : Other Group
+     * @return true if intersection exists, false else
+     */
     public boolean intersect(Group other) {
         boolean intersect=false;
         for (Shape shape: other.getListShape()){
@@ -303,6 +358,10 @@ public class Line extends Figure_geo {
         return false;
 
     }
+
+    /**
+     * error used for pick and move
+     */
     private final double error = 0.05;
 
 }

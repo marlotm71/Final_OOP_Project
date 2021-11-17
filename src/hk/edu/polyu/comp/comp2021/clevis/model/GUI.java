@@ -4,12 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Class Graphic User Interface
+ */
 public class GUI {
-
-    public GUI(){
-
-    }
-
+    /**
+     * Draw each shape of listShapeAll in a frame
+     * @param listShapeAll : List of all the shapes created
+     */
     public void drawFinal(List<Shape> listShapeAll){
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,5 +31,8 @@ public class GUI {
         frame.add(panel,BorderLayout.CENTER);
     }
 
+    /**
+     * New frame
+     */
     private JFrame frame = new JFrame();
 }

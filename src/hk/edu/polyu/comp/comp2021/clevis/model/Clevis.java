@@ -8,8 +8,14 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
 
+/**
+ * Class Clevis
+ */
 public class Clevis {
 
+    /**
+     * Constructor Clevis
+     */
     public Clevis() {
         boolean bool = false;
         Nbshapecreate nbCreate = new Nbshapecreate();
@@ -50,12 +56,24 @@ public class Clevis {
 
     private List<Group> listGroup =new ArrayList<>();
 
+    /**
+     * Error Occured if the command is false or the shape not recognized
+     */
     static class Fig_not_recognized extends Error{}
 
+    /**
+     * Error Occured if Name is already used
+     */
     static class Name_already_used extends Error{}
 
+    /**
+     * Error Occured if Figure is not in the grid
+     */
     static class FigureNotInGridError extends Error{}
 
+    /**
+     * Error Occured if Pick and move don't choose a shape in the grid
+     */
     static class Pick_and_move_Error extends Error{}
 
 

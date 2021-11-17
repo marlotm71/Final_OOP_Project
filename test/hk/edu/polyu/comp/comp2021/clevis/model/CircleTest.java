@@ -9,7 +9,10 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
-//hello
+
+/**
+ * Circle Test
+ */
 class CircleTest {
     private double xcircly = 3.0;
     private double ycircly = 3.0;
@@ -53,13 +56,6 @@ class CircleTest {
     private double Hansdx = 3.0;
     private double Hansdy = 6.0;
     private double Cleofedxx = 4.0;
-    //private double mincxy = -5.0;
-    //private double mincxr = 2.0;
-    //private double mincye = -20;
-    //private double mincxx = -3.0;
-    //private double mincxy = -5.0;
-    //private double mincxr = 2.0;
-    //private double mincye = -20;
 
 
     private Circle circly = new Circle("cir",3,xcircly,ycircly ,rcircly);
@@ -72,11 +68,17 @@ class CircleTest {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
+    /**
+     * Method to retrieve outline
+     */
     @BeforeEach
     public void setUp(){
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    /**
+     * Test getter radius circle
+     */
     @Test
     public void getR() {
         assertNotNull(circly.getR());  // make sure r is not null
@@ -86,6 +88,9 @@ class CircleTest {
         assertEquals(circlyr,circly.getR());
     }
 
+    /**
+     * Test move circle
+     */
     @Test
     public void move() {
         circly.move(2,4);
@@ -96,12 +101,18 @@ class CircleTest {
         Assert.assertEquals("The new Circle coordinates are : (5.0,7.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
     }
 
+    /**
+     * Test ListFigure circle
+     */
     @Test
     public void listFigure() {
         Hans.listFigure();
         Assert.assertEquals("Circle Name : Hans | Radius : 1.0 | Coordinates : (1.0,1.0) |",outputStreamCaptor.toString().trim());
     }
 
+    /**
+     * Test max coordinate x of the circle
+     */
     @Test
     void max_coordinate_x() {
         //radius cannot be negative and zero
@@ -113,6 +124,9 @@ class CircleTest {
         //max_coordinate_x() return getX() + r $
     }
 
+    /**
+     * Test max coordinate y of the circle
+     */
     @Test
     void max_coordinate_y() {
         //radius cannot be 0 or negative
@@ -123,6 +137,9 @@ class CircleTest {
         //to make sure the max coordinate of y is above 0, while the radius must be a number bigger than 0 and must not be negative $
     }
 
+    /**
+     * Test min coordinate x of the circle
+     */
     @Test
     public void min_coordinate_x() {
         //radius cannot 0 or negative numbers
@@ -133,6 +150,9 @@ class CircleTest {
 
     }
 
+    /**
+     * Test min coordinate y of the circle
+     */
     @Test
     void min_coordinate_y() {
         //radius cannot be 0
@@ -143,12 +163,19 @@ class CircleTest {
         assertEquals(LennyE,new Circle("Lenny", Lennyo, Lennyx, LennyY, LennyR).min_coordinate_y());
 
     }
+
+    /**
+     * Test distance point of the circle
+     */
     @Test
     void distancePoint() {
         assertFalse(Hans.distancePoint(Hansdx,Hansdy));
         assertTrue(Cleofe.distancePoint(Cleofedxx,Cleofedx));
     }
 
+    /**
+     * Test intersect with the circle
+     */
     @Test
     void intersect() {
         assertTrue(cirs.intersect(circly));

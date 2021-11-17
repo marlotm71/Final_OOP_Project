@@ -10,12 +10,18 @@ import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Tool Clevis Test
+ */
 public class ClevistoolsTest {
 
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     private Clevistools tools = new Clevistools();
 
+    /**
+     * Display the first message of welcoming and information
+     */
     @Test
     public void welcomingDisplay(){
         String welcome = tools.welcomingDisplay();

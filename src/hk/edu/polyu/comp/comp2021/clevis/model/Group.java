@@ -4,23 +4,43 @@ import java.awt.*;
 
 import static java.lang.Float.MAX_VALUE;
 
+/**
+ * Class Group when several shape are grouped together it's a child of shape
+ */
 public class Group extends Shape {
     private Shape[] listShape;
     //private List<Shape> listShapeGr=new ArrayList<>();
     private int size;
+
+    /**
+     * Constructor of the group
+     * @param name : name of the group
+     * @param zOrder : group Zorder
+     * @param nbShape : Number of Shape in group
+     * @param listShapeGroup : List of all the shapes in the group
+     */
     public Group(String name,int zOrder, int nbShape, Shape[] listShapeGroup) {
         super(name,zOrder);
         this.listShape=listShapeGroup;
         this.size=nbShape;
     }
 
+    /**
+     * getter of the list of shapes
+     * @return the list of shapes in the group
+     */
     public Shape[] getListShape() {
         return listShape;
     }
 
+    /**
+     * getter of the size of the group
+     * @return the size of the group
+     */
     public int getSize() {
         return size;
     }
+
 
     @Override
     public void move(double dx, double dy) {

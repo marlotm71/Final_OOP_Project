@@ -11,6 +11,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Command Process
+ */
 class Command_processTest {
     private final String commandRect = "rectangle rec 4 9 4 3";
     private final String commandCir = "circle cir 5 4 2";
@@ -56,12 +59,17 @@ class Command_processTest {
 
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
+    /**
+     * Method to retrieve outline
+     */
     @BeforeEach
     public void setUp(){
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    /**
+     * Command process test
+     */
     @Test
     public void command_Process(){
         Command_process command = new Command_process(commandRect,listShapeAll,listGroup,nbShapeCreate);
@@ -220,17 +228,5 @@ class Command_processTest {
                 "•Group Name = n composed by : \n" +
                 "  Rectangle Name : rec | Height : 3.0 | Width : 4.0 | Coordinate Top Left Corner : (4.0,9.0) | \n" +
                 "  Circle Name : cir | Radius : 2.0 | Coordinates : (5.0,4.0) |",outputStreamCaptor.toString().trim());
-    }
-
-    @Test
-    void generalIntersect() {
-    }
-
-    @Test
-    void checkNameAvailability() {
-    }
-
-    @Test
-    void checkPositive() {
     }
 }

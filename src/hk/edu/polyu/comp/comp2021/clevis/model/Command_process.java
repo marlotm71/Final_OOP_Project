@@ -3,9 +3,18 @@ package hk.edu.polyu.comp.comp2021.clevis.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-
+/**
+ * Class Command Process
+ */
 public class Command_process {
 
+    /**
+     * Processing of the user command
+     * @param command User command
+     * @param listShapeAll List of all the shapes created since the beginning
+     * @param listGroup List of all the different groups created since the beginning
+     * @param nbSCreate Number of shape created since the beginning
+     */
     public Command_process(String command, List<Shape> listShapeAll, List<Group> listGroup, Nbshapecreate nbSCreate){
         // Create a test
         String type_Figure_Geo = "";
@@ -221,6 +230,13 @@ public class Command_process {
                 //Create an error corresponding to * in case of a user command error
         }}
 
+    /**
+     * Take 2 shapes, and return true if the two shapes intersect each other, false else
+     * @param shape1 First Shape
+     * @param shape2 Second Shape
+     * @param listShapeAll List of all the shapes created since the beginning
+     * @return Boolean
+     */
     public boolean generalIntersect(Shape shape1, Shape shape2, List<Shape> listShapeAll){
         boolean intersect=false;
         String classElmt1 = shape1.getClass().getName();
@@ -351,6 +367,12 @@ public class Command_process {
         return intersect;
     }
 
+    /**
+     * Check if the name given in parameter is available
+     * @param name_Figure_Geo Name of the geometrical figure
+     * @param listShapeAll List of all the shapes created since the beginning
+     * @param listGroup List of all the groups created since the beginning
+     */
     public void CheckNameAvailability(String name_Figure_Geo,List<Shape> listShapeAll,List<Group> listGroup){
         for (Shape shape : listShapeAll) {
             if (shape.getName().equals(name_Figure_Geo)) {
@@ -362,6 +384,10 @@ public class Command_process {
                     throw new Clevis.Name_already_used();
                 }}}}
 
+    /**
+     * Check if the coordinate or parameter given is positive
+     * @param i coordinate or parameter
+     */
     public void CheckPositive(double i){
         if (i<0 ){
             throw new Clevis.FigureNotInGridError();}

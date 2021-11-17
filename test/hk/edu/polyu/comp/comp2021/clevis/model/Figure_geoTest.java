@@ -4,11 +4,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class Figure_geo Test
+ */
 class Figure_geoTest {
     private double Dianax = 24.0;
     private Circle Diana = new Circle("Diana", 3, Dianax,23.0f,12.0f);
     private Line liny = new Line("liny",2,14.0f,15.0f,24.0f,34.0f);
 
+    /**
+     * test getter coordinate x
+     */
     @Test
     void getX() {
         //x can be 0 or negative number but must be a float
@@ -22,6 +28,9 @@ class Figure_geoTest {
 
     }
 
+    /**
+     * Test getter coordinate y
+     */
     @Test
     void getY() {
         //y can be 0 or negative number
@@ -33,6 +42,9 @@ class Figure_geoTest {
         assertEquals(32, new Circle("Jan", 2, 67.0f,32.0f,23.0f).getY());
     }
 
+    /**
+     * Test setter coordinate x
+     */
     @Test
     void setX() {
         //y can be 0 or negative number
@@ -41,6 +53,9 @@ class Figure_geoTest {
         assertEquals(18,Diana.getX());
     }
 
+    /**
+     * Test setter coordinate y
+     */
     @Test
     void setY() {
         //y can be 0 or negative number
