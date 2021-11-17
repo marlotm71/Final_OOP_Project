@@ -9,6 +9,7 @@ public class Application {
 
     /**
      * new Clevis, Software Launched
+     * @param args : null
      */
     public static void main(String[] args){
         Clevis clevis = new Clevis();
