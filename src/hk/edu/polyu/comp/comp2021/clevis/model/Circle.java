@@ -4,6 +4,13 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 public class Circle extends Figure_geo {
+    /**
+     * @param name
+     * @param zOrder
+     * @param x
+     * @param y
+     * @param r
+     */
     public Circle(String name, int zOrder, double x, double y, double r){
         super(name,zOrder , x, y);
         this.r = r;
