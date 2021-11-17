@@ -180,57 +180,57 @@ class Command_processTest {
         Command_process command30 = new Command_process(commandIntersect17,listShapeAll,listGroup,nbShapeCreate);
         Command_process command31 = new Command_process(commandList,listShapeAll,listGroup,nbShapeCreate);
         Command_process command32 = new Command_process(commandListAll,listShapeAll,listGroup,nbShapeCreate);
-        assertEquals("The new square coordinates are : (7.0,8.0)\r\n" +
-                "\r\n" +
-                "The new line coordinates are : (8.0,12.0) to (13.0,8.0)\r\n" +
-                "\r\n" +
-                "\r\n" +
-                "Boundingbox : 3.0 2.0 4.0 4.0\r\n" +
-                "\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes don't intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes don't intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes don't intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes don't intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes don't intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes don't intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes don't intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes don't intersect with each other\r\n" +
-                "\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "The two shapes intersect with each other\r\n" +
-                "\r\n" +
-                "Line Name : lin | Coordinates : (8.0,12.0) to (13.0,8.0)\r\n" +
-                "\r\n" +
-                "•Line Name : lin | Coordinates : (8.0,12.0) to (13.0,8.0)\r\n" +
-                "•Square Name : squ | Height : 3.0 | Coordinates : (2.0,3.0) | \r\n" +
-                "•Circle Name : cir2 | Radius : 3.0 | Coordinates : (3.0,3.0) | \r\n" +
-                "•Group Name = n composed by : \r\n" +
-                "  Rectangle Name : rec | Height : 3.0 | Width : 4.0 | Coordinate Top Left Corner : (4.0,9.0) | \r\n" +
+        assertEquals("The new square coordinates are : (7.0,8.0)\n" +
+                "\n" +
+                "The new line coordinates are : (8.0,12.0) to (13.0,8.0)\n" +
+                "\n" +
+                "\n" +
+                "Boundingbox : 3.0 2.0 4.0 4.0\n" +
+                "\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "The two shapes don't intersect with each other\n" +
+                "\n" +
+                "The two shapes don't intersect with each other\n" +
+                "\n" +
+                "The two shapes don't intersect with each other\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "The two shapes don't intersect with each other\n" +
+                "\n" +
+                "The two shapes don't intersect with each other\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "The two shapes don't intersect with each other\n" +
+                "\n" +
+                "The two shapes don't intersect with each other\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "The two shapes don't intersect with each other\n" +
+                "\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "The two shapes intersect with each other\n" +
+                "\n" +
+                "Line Name : lin | Coordinates : (8.0,12.0) to (13.0,8.0)\n" +
+                "\n" +
+                "•Line Name : lin | Coordinates : (8.0,12.0) to (13.0,8.0)\n" +
+                "•Square Name : squ | Height : 3.0 | Coordinates : (2.0,3.0) | \n" +
+                "•Circle Name : cir2 | Radius : 3.0 | Coordinates : (3.0,3.0) | \n" +
+                "•Group Name = n composed by : \n" +
+                "  Rectangle Name : rec | Height : 3.0 | Width : 4.0 | Coordinate Top Left Corner : (4.0,9.0) | \n" +
                 "  Circle Name : cir | Radius : 2.0 | Coordinates : (5.0,4.0) |",outputStreamCaptor.toString().trim());
     }
 }

@@ -61,7 +61,7 @@ class GroupTest {
     @Test
     public void listFigure() {
         groupy.listFigure();
-        Assert.assertEquals("Group Name = groupy composed by : \r\n   Circle Name : cir | Radius : 3.0 | Coordinates : (3.0,3.0) | \r\n   Rectangle Name : cirs | Height : 13.0 | Width : 4.0 | Coordinate Top Left Corner : (4.0,4.0) | \r\n   Circle Name : Hans | Radius : 1.0 | Coordinates : (1.0,1.0) |",outputStreamCaptor.toString().trim());
+        Assert.assertEquals("Group Name = groupy composed by : \n   Circle Name : cir | Radius : 3.0 | Coordinates : (3.0,3.0) | \n   Rectangle Name : cirs | Height : 13.0 | Width : 4.0 | Coordinate Top Left Corner : (4.0,4.0) | \n   Circle Name : Hans | Radius : 1.0 | Coordinates : (1.0,1.0) |",outputStreamCaptor.toString().trim());
     }
 
     /**

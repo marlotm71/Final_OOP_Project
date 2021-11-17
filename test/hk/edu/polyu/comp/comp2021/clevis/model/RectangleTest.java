@@ -133,7 +133,7 @@ class RectangleTest {
         assertEquals(4, James.getX());
         assertEquals(6,James.getY());
         James.move(James1,James2);
-        Assert.assertEquals("The new Rectangle coordinates are : (4.0,6.0)\r\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
+        Assert.assertEquals("The new Rectangle coordinates are : (4.0,6.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
     }
 
     /**

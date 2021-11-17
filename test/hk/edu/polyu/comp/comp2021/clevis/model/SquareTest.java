@@ -77,7 +77,7 @@ class SquareTest {
         final double dx2 = -20;
         final double dy2 = -20;
         Squid.move(dx2,dy2);
-        Assert.assertEquals("The new square coordinates are : (5.0,5.0)\r\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
+        Assert.assertEquals("The new square coordinates are : (5.0,5.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
     }
     /**
      * Test list characteristics of the square
