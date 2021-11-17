@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Figure_geoTest {
-    private Circle Diana = new Circle("Diana", 3, 24.0f,23.0f,12.0f);
+    private double Dianax = 24.0;
+    private Circle Diana = new Circle("Diana", 3, Dianax,23.0f,12.0f);
     private Line liny = new Line("liny",2,14.0f,15.0f,24.0f,34.0f);
 
     @Test
