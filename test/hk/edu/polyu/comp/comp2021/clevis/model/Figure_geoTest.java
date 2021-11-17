@@ -14,11 +14,6 @@ class Figure_geoTest {
         Dianax = 24.0;
     }
 
-    private final double Dianay;
-
-    {
-        Dianay = 23.0;
-    }
 
     private final double Dianar;
 

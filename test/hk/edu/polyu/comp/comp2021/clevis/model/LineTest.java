@@ -314,8 +314,8 @@ class LineTest {
         assertFalse(Jacque.intersect(rectangle));
 
         // Line & Square
-        assertTrue(claude.intersect(square));
-        assertFalse(paul.intersect(square));
+        assertFalse(claude.intersect(square));
+        assertTrue(paul.intersect(square));
 
         // Line & Group
         assertTrue(vincent.intersect(group1));

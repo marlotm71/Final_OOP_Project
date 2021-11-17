@@ -14,15 +14,93 @@ import static org.junit.jupiter.api.Assertions.*;
  * Class Rectangle Test
  */
 class RectangleTest {
-    private Rectangle James = new Rectangle("James",2,2.0f,2.0f,2.0f,2.0f);
+    private final double JamesX = 2.0;
+    private final double JamesY = 2.0;
+    private final double JamesW = 2.0;
+    private final double JamesH = 2.0;
+    private final double JohnX = 6.0;
+    private final double JohnY = 6.0;
+    private final double JohnW = 6.0;
+    private final double JohnH = 6.0;
+    private final double TimX = 5.0;
+    private final double TimY = 5.0;
+    private final double TimW = 5.0;
+    private final double TimH = 5.0;
+    private final double LamX = 4.0;
+    private final double LamY = 4.0;
+    private final double LamW = 4.0;
+    private final double LamH = 4.0;
+    private final double MarionX = 4.0;
+    private final double MarionY = 5.0;
+    private final double MarionW = 10.0;
+    private final double MarionH = 4.0;
+    private final double FanAE = 56.0;
+    private final double FanX = 12.0;
+    private final double FanY = 23.0;
+    private final double FanW = 43.0;
+    private final double FanH = 56.0;
+    private final double James1 = -20;
+    private final double James2 = -20;
+    private final double CodyAE = 14.0;
+    private final double CodyX = 7.0;
+    private final double CodyY = 7.0;
+    private final double CodyW = 7.0;
+    private final double CodyH = 7.0;
+    private final double DobryAE = 12.0;
+    private final double DobryX = 5.0;
+    private final double DobryY = 7.0;
+    private final double DobryW = 7.0;
+    private final double DobryH = 5.0;
+    private final double KamiAE = 27.0;
+    private final double KamiX = 5.0;
+    private final double KamiY = 18.0;
+    private final double KamiW = 7.0;
+    private final double KamiH = 9.0;
+    private final double Kami1AE = 14.0;
+    private final double GameAE = 14.0;
+    private final double GameX = 5.0;
+    private final double GameY = 12.0;
+    private final double GameW = 9.0;
+    private final double GameH = 2.0;
+    private final double JeromeX = 10.0;
+    private final double JeromeY = 8.0;
+    private final double JeromeW = 4.0;
+    private final double JeromeH = 11.0;
+    private final double bobAE = 90.0;
+    private final double bobX = 90.0;
+    private final double bobY = 6.9;
+    private final double boyW = 12.0;
+    private final double bobH = 3.9;
+    private final double FedAE = 32.0;
+    private final double FedX = 21.0;
+    private final double FedY = 32.0;
+    private final double FedW = 12.0;
+    private final double FedH = 29.0;
+    private final double KamAE = 28.0;
+    private final double KamX = 8.0;
+    private final double KamY = 28.0;
+    private final double KamW = 11.0;
+    private final double KamH = 31.0;
+    private final double Lam1 = 7.0;
+    private final double Lam2 = 7.0;
+    private final double Lam3 = 10.0;
+    private final double Lam4 = 10.0;
+    private final double Marion1 = 13.04;
+    private final double Marion2 = 5.0;
+
+
+
+
+
+    private Rectangle James = new Rectangle("James",2,JamesX,JamesY,JamesW,JamesH);
     private Line JamesLine1 = new Line("JameLine1", 2, 2,2,4,2);
     private Line JamesLine2 = new Line("JameLine2", 2, 2,2,2,4);
     private Line JamesLine3 = new Line("JameLine3", 2, 2,4,4,4);
     private Line JamesLine4 = new Line("JameLine4", 2, 4,2,4,4);
-    private Rectangle John = new Rectangle("John",6,6.0f,6.0f,6.0f,6.0f);
-    private Rectangle Tim = new Rectangle("Tim",5,5.0f,5.0f,5.0f,5.0f);
-    private Rectangle Lam = new Rectangle("Lam",4,4.0f,4.0f,4.0f,4.0f);
-    private Rectangle Marion = new Rectangle("Marion",4,4.0f,5.0f,10.0f,4.0f);
+    private Rectangle John = new Rectangle("John",6,JohnX,JohnY,JohnW,JohnH);
+    private Rectangle Tim = new Rectangle("Tim",5,TimX,TimY,TimW,TimH);
+    private Rectangle Lam = new Rectangle("Lam",4,LamX,LamY,LamW,LamH);
+    private Rectangle Marion = new Rectangle("Marion",4,MarionX,MarionY,MarionW,MarionH);
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     /**
@@ -42,7 +120,7 @@ class RectangleTest {
         assertNotEquals(" ", James.getH()); // make sure height is not empty
         assertTrue(James.getH() > 0); // to make sure the height not zero or negative
         assertFalse(James.getH() <= 0); // to make sure the radius is not a zero or negative value
-        assertEquals(56, new Rectangle("Fan",1, 12.0f,23.0f,43.0f,56.0f).getH());
+        assertEquals(FanAE, new Rectangle("Fan",1, FanX,FanY,FanW,FanH).getH());
 
     }
 
@@ -54,8 +132,8 @@ class RectangleTest {
         James.move(2,4);
         assertEquals(4, James.getX());
         assertEquals(6,James.getY());
-        James.move(-20,-20);
-        Assert.assertEquals("The new Rectangle coordinates are : (4.0,6.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
+        James.move(James1,James2);
+        Assert.assertEquals("The new Rectangle coordinates are : (4.0,6.0)\r\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
     }
 
     /**
@@ -76,8 +154,8 @@ class RectangleTest {
         //but the max_coordinate_x does not need to be positive or bigger than 0, due to the chance of X coordinate being negative
         assertTrue(  John.getL() > 0);
         assertFalse( John.getL() < 0);
-        assertEquals(14,new Rectangle("Cody",7,7.0f,7.0f,7.0f,7.0f).max_coordinate_x());
-        assertEquals(12,new Rectangle("Dobry",7,5.0f,7.0f,7.0f,5.0f).max_coordinate_x());
+        assertEquals(CodyAE,new Rectangle("Cody",7,CodyX,CodyY,CodyW,CodyH).max_coordinate_x());
+        assertEquals(DobryAE,new Rectangle("Dobry",7,DobryX,DobryY,DobryW,DobryH).max_coordinate_x());
 
     }
     /**
@@ -87,8 +165,8 @@ class RectangleTest {
     void max_coordinate_y() {
         //Max_coordinate_y -> return getY()
         //the max_coordinate_y can be 0 and negative value, as there is a chance of y being a negative number
-        assertEquals(27,new Rectangle("Kami",3,5.0f,18.0f,7.0f,9.0f).max_coordinate_y());
-        assertEquals(14,new Rectangle("Game",4,5.0f,12.0f,9.0f,2.0f).max_coordinate_y());
+        assertEquals(KamiAE,new Rectangle("Kami",3,KamiX,KamiY,KamiW,KamiH).max_coordinate_y());
+        assertEquals(GameAE,new Rectangle("Game",4,GameX,GameY,GameW,GameH).max_coordinate_y());
     }
     /**
      * Test the getter of the min coordinate x of the rectangle
@@ -98,8 +176,8 @@ class RectangleTest {
         //X coordinate has a chance of being negative and 0
         //so the min_coordinate_x can be negative and 0
         //min_coordinate_x -> return getX()
-        assertEquals(10, new Rectangle("Jerome",7,10.0f,8.0f,4.0f,11.0f).min_coordinate_x());
-        assertEquals(90,new Rectangle("Bob",5,90.0f,6.9f,12.0f,3.9f).min_coordinate_x());
+        assertEquals(10, new Rectangle("Jerome",7,JeromeX,JeromeY,JeromeW,JeromeH).min_coordinate_x());
+        assertEquals(bobAE,new Rectangle("Bob",5,bobX,bobY,boyW,bobH).min_coordinate_x());
 
     }
     /**
@@ -112,8 +190,8 @@ class RectangleTest {
         // but the min_coordinate of can negative or 0, due to chance of Y being negative or zero and subtraction is done.
         assertTrue(Tim.getH() > 0); // height cannot be negative, but the min coordinates can be negative
         assertFalse(Tim.getH() <= 0); // height cannot be negative
-        assertEquals(32, new Rectangle("Fed",6,21.0f,32.0f,12.0f,29.0f).min_coordinate_y());
-        assertEquals(28, new Rectangle("Kam",9,8.0f,28.0f,11.0f,31.0f).min_coordinate_y());
+        assertEquals(FedAE, new Rectangle("Fed",6,FedX,FedY,FedW,FedH).min_coordinate_y());
+        assertEquals(KamAE, new Rectangle("Kam",9,KamX,KamY,KamW,KamH).min_coordinate_y());
 
     }
     /**
@@ -121,9 +199,9 @@ class RectangleTest {
      */
     @Test
     void distancePoint() {
-        assertTrue(Lam.distancePoint(7.0f,7.0f));
-        assertFalse(Lam.distancePoint(10.0f,10.0f));
-        assertTrue(Marion.distancePoint(13.04f,5.0f));
+        assertTrue(Lam.distancePoint(Lam1,Lam2));
+        assertFalse(Lam.distancePoint(Lam3,Lam4));
+        assertTrue(Marion.distancePoint(Marion1,Marion2));
     }
     /**
      * Test the transformation of the side 1 of the rectangle in line

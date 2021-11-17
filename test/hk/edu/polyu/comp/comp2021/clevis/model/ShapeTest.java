@@ -51,7 +51,7 @@ class ShapeTest {
         assertNotNull(Pat.getzOrder());
         assertNotEquals(" ", Jim.getzOrder());
         final double xpectededJimz = 2;
-        final double xpectededCleofz = 2;
+        final double xpectededCleofz = 10;
         assertEquals(xpectededJimz,Jim.getzOrder());
         assertEquals(xpectededCleofz,Cleofe.getzOrder());
     }
@@ -63,7 +63,7 @@ class ShapeTest {
         //name should not be null or empty
         assertNotNull(lin.getName());
         assertNotEquals(" ", lin.getName());
-        assertEquals("lin",lin.getName());
+        assertEquals("Lin",lin.getName());
         assertEquals("Kyle", Jim.getName());
 
     }
@@ -74,8 +74,8 @@ class ShapeTest {
     void max_coordinate_x() {
         final double xpectededElimaxx = 18;
         final double xpectededCleofmaxx = 20;
-        final double xpectededlinmaxx = 20;
-        final double xpectededTimmaxx = 20;
+        final double xpectededlinmaxx = 43;
+        final double xpectededTimmaxx = 10;
         assertEquals(xpectededElimaxx, Eli.max_coordinate_x());
         assertEquals(xpectededCleofmaxx,Cleofe.max_coordinate_x());
         assertEquals(xpectededlinmaxx, lin.max_coordinate_x());
@@ -103,7 +103,7 @@ class ShapeTest {
         final double xpectededCleofminx = 0;
         final double xpectededJimminx= 9;
         final double xpectededEliminx= 9;
-        final double xpectededPatminx= 0;
+        final double xpectededPatminx= -5;
         assertEquals(xpectededCleofminx,Cleofe.min_coordinate_x());
         assertEquals(xpectededJimminx, Jim.min_coordinate_x());
         assertEquals(xpectededEliminx,Eli.min_coordinate_x());
@@ -115,13 +115,13 @@ class ShapeTest {
     @Test
     void min_coordinate_y() {
         final double xpectededCleofminy = 0;
-        final double xpectededPatminy= 0;
+        final double xpectededPatminy= -3;
         final double xpectededEliminy= 9;
         final double xpectededJimminy= 12;
         assertEquals(xpectededCleofminy,Cleofe.min_coordinate_y());
-        assertEquals(xpectededJimminy, Pat.min_coordinate_y());
+        assertEquals(xpectededPatminy, Pat.min_coordinate_y());
         assertEquals(xpectededEliminy, Eli.min_coordinate_y());
-        assertEquals(xpectededPatminy, Jim.min_coordinate_y());
+        assertEquals(xpectededJimminy, Jim.min_coordinate_y());
 
     }
 }

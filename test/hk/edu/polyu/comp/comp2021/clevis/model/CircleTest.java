@@ -94,12 +94,12 @@ class CircleTest {
     @Test
     public void move() {
         circly.move(2,4);
+        Assert.assertEquals("The new Circle coordinates are : (5.0,7.0)",outputStreamCaptor.toString().trim());
         assertEquals(5, circly.getX());
         assertEquals(7,circly.getY());
         assertEquals(3,circly.getR());
         circly.move(movecircly,movecircly2);
-        Assert.assertEquals("The new Circle coordinates are : (5.0,7.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
-    }
+        }
 
     /**
      * Test ListFigure circle
