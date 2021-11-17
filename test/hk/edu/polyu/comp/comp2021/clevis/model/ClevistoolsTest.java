@@ -14,7 +14,7 @@ public class ClevistoolsTest {
 
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-    Clevistools tools = new Clevistools();
+    private Clevistools tools = new Clevistools();
 
     @Test
     public void welcomingDisplay(){
