@@ -12,6 +12,9 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class Sqauare Test
+ */
 class SquareTest {
     private Square Squid = new Square("Squid",3,3.0f,3.0f,3.0f);
     private Line SquidLine1 = new Line("SquidLine1", 2, 3,3,6,3);
@@ -25,12 +28,16 @@ class SquareTest {
     private Square Eli = new Square("Eli", 9,9.0f,9.0f,9.0f);
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
+    /**
+     * Method to retrieve outline
+     */
     @BeforeEach
     public void setUp(){
         System.setOut(new PrintStream(outputStreamCaptor));
     }
-
+    /**
+     * Test getter length square
+     */
     @Test
     void getL() {
         assertNotNull(Squid.getL());  // make sure r is not null
@@ -38,7 +45,9 @@ class SquareTest {
         assertTrue(Squid.getL() > 0); // to make sure the length not zero or negative
         assertFalse(Squid.getL() <= 0); // to make sure the length is not a zero or negative value
     }
-
+    /**
+     * Test move square
+     */
     @Test
     public void move() {
         Squid.move(2,4);
@@ -47,13 +56,17 @@ class SquareTest {
         Squid.move(-20,-20);
         Assert.assertEquals("The new square coordinates are : (5.0,7.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
     }
-
+    /**
+     * Test list characteristics of the square
+     */
     @Test
     public void listFigure() {
         Squid.listFigure();
         Assert.assertEquals("Square Name : Squid | Height : 3.0 | Coordinates : (3.0,3.0) |",outputStreamCaptor.toString().trim());
     }
-
+    /**
+     * Test getter of the maximum coordinate x of the square
+     */
     @Test
     void max_coordinate_x() {
         //max_coordinate_x() return getX() + l
@@ -65,6 +78,9 @@ class SquareTest {
         assertEquals(16, new Square("Her", 6,13.0f,7.0f,3.0f).max_coordinate_x());
         //assertEquals(3, new Rectangle("Fed",6,21.0f,32.0f,12.0f,29.0f).min_coordinate_y());
     }
+    /**
+     * Test getter of the maximum coordinate y of the square
+     */
     @Test
     void max_coordinate_y() {
         //max_coordinate_y() return getY()
@@ -74,7 +90,9 @@ class SquareTest {
         assertEquals(164, new Square("Wally", 8, 6.0f, 74.0f,90.0f).max_coordinate_y());
         assertEquals(72, new Square("Sally", 6, 12.0f,12.0f, 60.0f).max_coordinate_y());
     }
-
+    /**
+     * Test getter of the minimum coordinate x of the square
+     */
     @Test
     void min_coordinate_x() {
         //min_coordinate_x() return getX()
@@ -84,7 +102,9 @@ class SquareTest {
         assertEquals(88, new Square("Dominic", 4, 88.0f, 50.1f, 45.5f).min_coordinate_x());
 
     }
-
+    /**
+     * Test getter of the minimum coordinate y of the square
+     */
     @Test
     void min_coordinate_y() {
         assertTrue(Eli.getL() > 0); // make sure Length is bigger than 0 and negative numbers
@@ -92,13 +112,18 @@ class SquareTest {
         assertEquals(34, new Square("Eunice",3,90.0f,34.0f,2.0f).min_coordinate_y());
         assertEquals(2, new Square("Kelly", 1, 56.0f,2.0f,5.0f).min_coordinate_y());
     }
+    /**
+     * Test the distance between point chosen and the square
+     */
     @Test
     void distancePoint() {
         assertTrue(Eli.distancePoint(10.0f,10.0f));
         assertFalse(Stan.distancePoint(15.0f,16.0f));
 
     }
-
+    /**
+     * Test the transformation of the side 1 of the square in line
+     */
     @Test
     void transformSquareInLine1() {
         assertEquals(SquidLine1.getX(), Squid.transformSquareInLine1().getX());
@@ -106,7 +131,9 @@ class SquareTest {
         assertEquals(SquidLine1.getX2(), Squid.transformSquareInLine1().getX2());
         assertEquals(SquidLine1.getY2(), Squid.transformSquareInLine1().getY2());
     }
-
+    /**
+     * Test the transformation of the side 2 of the square in line
+     */
     @Test
     void transformSquareInLine2() {
         assertEquals(SquidLine2.getX(), Squid.transformSquareInLine2().getX());
@@ -114,7 +141,9 @@ class SquareTest {
         assertEquals(SquidLine2.getX2(), Squid.transformSquareInLine2().getX2());
         assertEquals(SquidLine2.getY2(), Squid.transformSquareInLine2().getY2());
     }
-
+    /**
+     * Test the transformation of the side 3 of the square in line
+     */
     @Test
     void transformSquareInLine3() {
         assertEquals(SquidLine3.getX(), Squid.transformSquareInLine3().getX());
@@ -122,7 +151,9 @@ class SquareTest {
         assertEquals(SquidLine3.getX2(), Squid.transformSquareInLine3().getX2());
         assertEquals(SquidLine3.getY2(), Squid.transformSquareInLine3().getY2());
     }
-
+    /**
+     * Test the transformation of the side 4 of the square in line
+     */
     @Test
     void transformSquareInLine4() {
         assertEquals(SquidLine4.getX(), Squid.transformSquareInLine4().getX());
@@ -130,15 +161,5 @@ class SquareTest {
         assertEquals(SquidLine4.getX2(), Squid.transformSquareInLine4().getX2());
         assertEquals(SquidLine4.getY2(), Squid.transformSquareInLine4().getY2());
     }
-
-    /*@Test
-    void draw() {
-        Graphics g1;
-        Graphics2D g = (Graphics2D) g1;
-        Rectangle2D rect = new Rectangle2D.Double(Squid.getX(), Squid.getY(), Squid.getL(), Squid.getL());
-        g.draw(rect);
-        assertEquals(g.draw(rect),Squid.draw(g1));
-    }*/
-
 
 }

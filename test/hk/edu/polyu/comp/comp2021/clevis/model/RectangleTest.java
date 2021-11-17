@@ -10,6 +10,9 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class Rectangle Test
+ */
 class RectangleTest {
     private Rectangle James = new Rectangle("James",2,2.0f,2.0f,2.0f,2.0f);
     private Line JamesLine1 = new Line("JameLine1", 2, 2,2,4,2);
@@ -22,12 +25,17 @@ class RectangleTest {
     private Rectangle Marion = new Rectangle("Marion",4,4.0f,5.0f,10.0f,4.0f);
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
+    /**
+     * Method to retrieve outline
+     */
     @BeforeEach
     public void setUp(){
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    /**
+     * Test getter height
+     */
     @Test
     void getH() {
         assertNotNull(James.getH()); // to make the height is not null
@@ -38,6 +46,9 @@ class RectangleTest {
 
     }
 
+    /**
+     * Test getter width
+     */
     @Test
     void getW() {
         assertNotNull(James.getW()); // to make sure the width is not null
@@ -47,6 +58,9 @@ class RectangleTest {
         assertEquals(45, new Rectangle("Grace",2, 12.0f,34.0f,45.0f, 12.0f).getW());
     }
 
+    /**
+     * Test move rectangle
+     */
     @Test
     public void move() {
         James.move(2,4);
@@ -56,12 +70,18 @@ class RectangleTest {
         Assert.assertEquals("The new Rectangle coordinates are : (4.0,6.0)\nThe new coordinates are not in the grid",outputStreamCaptor.toString().trim());
     }
 
+    /**
+     * Test List characteristics of this rectangle
+     */
     @Test
     public void listFigure() {
         James.listFigure();
         Assert.assertEquals("Rectangle Name : James | Height : 2.0 | Width : 2.0 | Coordinate Top Left Corner : (2.0,2.0) |",outputStreamCaptor.toString().trim());
     }
 
+    /**
+     * Test the getter of the max coordinate x of the rectangle
+     */
     @Test
     void max_coordinate_x() {
         //the height must be a positive number and is bigger than 0
@@ -72,6 +92,9 @@ class RectangleTest {
         assertEquals(12,new Rectangle("Dobry",7,5.0f,7.0f,7.0f,5.0f).max_coordinate_x());
 
     }
+    /**
+     * Test the getter of the max coordinate y of the rectangle
+     */
     @Test
     void max_coordinate_y() {
         //Max_coordinate_y -> return getY()
@@ -79,7 +102,9 @@ class RectangleTest {
         assertEquals(27,new Rectangle("Kami",3,5.0f,18.0f,7.0f,9.0f).max_coordinate_y());
         assertEquals(14,new Rectangle("Game",4,5.0f,12.0f,9.0f,2.0f).max_coordinate_y());
     }
-
+    /**
+     * Test the getter of the min coordinate x of the rectangle
+     */
     @Test
     void min_coordinate_x() {
         //X coordinate has a chance of being negative and 0
@@ -89,7 +114,9 @@ class RectangleTest {
         assertEquals(90,new Rectangle("Bob",5,90.0f,6.9f,12.0f,3.9f).min_coordinate_x());
 
     }
-
+    /**
+     * Test the getter of the min coordinate y of the rectangle
+     */
     @Test
     void min_coordinate_y() {
         //min_coordinate_y -> return getY()-h
@@ -101,14 +128,18 @@ class RectangleTest {
         assertEquals(28, new Rectangle("Kam",9,8.0f,28.0f,11.0f,31.0f).min_coordinate_y());
 
     }
-
+    /**
+     * Test the distance between a point chosen and the rectangle
+     */
     @Test
     void distancePoint() {
         assertTrue(Lam.distancePoint(7.0f,7.0f));
         assertFalse(Lam.distancePoint(10.0f,10.0f));
         assertTrue(Marion.distancePoint(13.04f,5.0f));
     }
-
+    /**
+     * Test the transformation of the side 1 of the rectangle in line
+     */
     @Test
     void transformRecInLine1() {
         assertEquals(JamesLine1.getX(), James.transformRecInLine1().getX());
@@ -116,7 +147,9 @@ class RectangleTest {
         assertEquals(JamesLine1.getX2(), James.transformRecInLine1().getX2());
         assertEquals(JamesLine1.getY2(), James.transformRecInLine1().getY2());
     }
-
+    /**
+     * Test the transformation of the side 2 of the rectangle in line
+     */
     @Test
     void transformRecInLine2() {
         assertEquals(JamesLine2.getX(), James.transformRecInLine2().getX());
@@ -124,7 +157,9 @@ class RectangleTest {
         assertEquals(JamesLine2.getX2(), James.transformRecInLine2().getX2());
         assertEquals(JamesLine2.getY2(), James.transformRecInLine2().getY2());
     }
-
+    /**
+     * Test the transformation of the side 3 of the rectangle in line
+     */
     @Test
     void transformRecInLine3() {
         assertEquals(JamesLine3.getX(), James.transformRecInLine3().getX());
@@ -132,7 +167,9 @@ class RectangleTest {
         assertEquals(JamesLine3.getX2(), James.transformRecInLine3().getX2());
         assertEquals(JamesLine3.getY2(), James.transformRecInLine3().getY2());
     }
-
+    /**
+     * Test the transformation of the side 4 of the rectangle in line
+     */
     @Test
     void transformRecInLine4() {
         assertEquals(JamesLine4.getX(), James.transformRecInLine4().getX());

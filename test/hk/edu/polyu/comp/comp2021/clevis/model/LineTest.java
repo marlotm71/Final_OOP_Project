@@ -167,6 +167,9 @@ class LineTest {
 
     }
     //Several Intersects
+    /**
+     * Test intersection in several cases
+     */
     @Test
     void intersect() {
 
