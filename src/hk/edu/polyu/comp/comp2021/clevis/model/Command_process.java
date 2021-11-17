@@ -99,7 +99,6 @@ public class Command_process {
                 nbSCreatebis = nbSCreatebis - nbShape + 1;
                 nbSCreate.setNbshapecreate(nbSCreatebis);
                 break;
-
             case ("ungroup"):
                 name_Figure_geo = st.nextToken();
                 for (Group group : listGroup) {
@@ -111,20 +110,15 @@ public class Command_process {
                             listShapeAll.add(group.getListShape()[i]);
                             System.out.println(group.getListShape()[i].getName());
                         }
-                    }
-                    break;
-                }
+                    }break;}
                 break;
-
-
             case ("delete"):
                 name_Figure_geo = st.nextToken();
                 for (Shape elmtShapeAll : listShapeAll) {
                     if (elmtShapeAll.getName().equals(name_Figure_geo)) {
                         listShapeAll.remove(elmtShapeAll);
                         break;
-                    }
-                }
+                    }}
                 break;
 
             case ("list"):

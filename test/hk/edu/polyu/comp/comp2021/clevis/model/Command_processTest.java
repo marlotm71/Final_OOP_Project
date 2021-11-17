@@ -36,6 +36,7 @@ class Command_processTest {
     @Test
     public void command_Process(){
         Command_process command = new Command_process(commandRect,listShapeAll,listGroup,nbShapeCreate);
+        // ListShapeAll = [rec]
         Rectangle rect = (Rectangle) listShapeAll.get(0);
         assertEquals(rectangle.getX(),rect.getX());
         assertEquals(rectangle.getY(),rect.getY());
@@ -43,12 +44,14 @@ class Command_processTest {
         assertEquals(rectangle.getW(),rect.getW());
         assertEquals(rectangle.getName(),rect.getName());
         Command_process command2 = new Command_process(commandCir,listShapeAll,listGroup,nbShapeCreate);
+        // ListShapeAll = [rec, cir]
         Circle cir = (Circle) listShapeAll.get(1);
         assertEquals(circle.getX(), cir.getX());
         assertEquals(circle.getY(), cir.getY());
         assertEquals(circle.getR(), cir.getR());
         assertEquals(circle.getName(), cir.getName());
         Command_process command3 = new Command_process(commandLine,listShapeAll,listGroup,nbShapeCreate);
+        // ListShapeAll = [rec, cir, lin]
         Line line = (Line) listShapeAll.get(2);
         assertEquals(vincent.getX(), line.getX());
         assertEquals(vincent.getY(), line.getY());
@@ -56,12 +59,14 @@ class Command_processTest {
         assertEquals(vincent.getY2(), line.getY2());
         assertEquals(vincent.getName(), line.getName());
         Command_process command4 = new Command_process(commandSquare,listShapeAll,listGroup,nbShapeCreate);
+        // ListShapeAll = [rec, cir, lin, squ]
         Square square = (Square) listShapeAll.get(3);
         assertEquals(squa.getX(), square.getX());
         assertEquals(squa.getY(), square.getY());
         assertEquals(squa.getL(), square.getL());
         assertEquals(squa.getName(), square.getName());
         Command_process command5 = new Command_process(commandGroup,listShapeAll,listGroup,nbShapeCreate);
+        // ListShapeAll = [lin, squ, n]
         Group group = (Group) listShapeAll.get(2); // Second Position because we've removed the rectangle and the circle of ListShapeAll
         Rectangle recgroupinit = (Rectangle) groupy.getListShape()[0];
         Rectangle recgroupfin = (Rectangle) group.getListShape()[0];
@@ -71,6 +76,7 @@ class Command_processTest {
         assertEquals(recgroupinit.getW(), recgroupfin.getW());
         assertEquals(recgroupinit.getName(), recgroupfin.getName());
         Command_process command6 = new Command_process(commandUngroup,listShapeAll,listGroup,nbShapeCreate);
+        // ListShapeAll = [lin, squ, rect, cir]
         Square squareafteragroup = (Square) listShapeAll.get(1);
         assertEquals(squa.getX(), squareafteragroup.getX());
         assertEquals(squa.getY(), squareafteragroup.getY());
@@ -89,12 +95,14 @@ class Command_processTest {
         assertEquals(rectangle.getW(), rectafteragroup.getW());
         assertEquals(rectangle.getName(), rectafteragroup.getName());
         Command_process command7 = new Command_process(commandPick_and_move,listShapeAll,listGroup,nbShapeCreate);
+        // ListShapeAll = [lin, squ(moved), rect, cir]
         Square squareaftermove = (Square) listShapeAll.get(1);
         final double dx = 5;
         final double dy = 5;
         assertEquals(squa.getX() + dx, squareaftermove.getX());
         assertEquals(squa.getY()+ dy , squareaftermove.getY());
         Command_process command8 = new Command_process(commandMove,listShapeAll,listGroup,nbShapeCreate);
+        // ListShapeAll = [lin(moved), squ(moved), rect, cir]
         Line lineaftermove = (Line) listShapeAll.get(0);
         final double movedx = 4;
         final double movedy = 4;
@@ -102,6 +110,11 @@ class Command_processTest {
         assertEquals(vincent.getY()+movedy, lineaftermove.getY());
         assertEquals(vincent.getX2()+movedx, lineaftermove.getX2());
         assertEquals(vincent.getY2()+movedy, lineaftermove.getY2());
+        Command_process command9 = new Command_process(commandDelete,listShapeAll,listGroup,nbShapeCreate);
+        // We delete the square which was in second poisition in listShapeAll
+        // Thus, the second is now the rectangle
+        Rectangle rectangleAfterDelete = (Rectangle) listShapeAll.get(1);
+        assertEquals(rectangle.getName(), rectangleAfterDelete.getName());
 
     }
 
