@@ -8,18 +8,10 @@ public class Square extends Figure_geo {
         super(name, zOrder, x, y);
         this.l = l;
     }
-
-
-
-
-
     public double getL() {
         return l;
     }
 
-
-
-    private double l;
 
 
     @Override
@@ -86,8 +78,7 @@ public class Square extends Figure_geo {
     private final double error = 0.05;
 
 
-
-
+    private double l;
     public class FigureNotInGridError extends Throwable { }
 
 
